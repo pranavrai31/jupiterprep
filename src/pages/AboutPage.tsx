@@ -86,10 +86,10 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
 
             <div className="border-l-4 border-amber-500 pl-8">
               <p className="text-stone-700 text-lg leading-relaxed mb-5">
-                What sets Jupiter Prep apart isn't just our results — it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
+                What sets Jupiter Prep apart isn't just our results, it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
               </p>
               <p className="text-stone-700 text-lg leading-relaxed mb-5">
-                Every tutor on our team has been personally trained by us. We've passed on what we know works, while giving each of them the freedom to develop their own natural teaching style. The result is a tight-knit group of educators who are not just skilled — they genuinely care about the students they work with.
+                Every tutor on our team has been professionaly trained by us. We've passed on what we know works, while giving each of them the freedom to develop their own natural teaching style. The result is a tight-knit group of educators who are skilled and genuinely care about the students they work with.
               </p>
               <p className="text-stone-700 text-lg leading-relaxed">
                 We started Jupiter Prep because we wanted to offer something different: real mentorship, proven strategies, and the kind of personalized attention that creates lasting improvement. We're proud of what this team has built, and we're just getting started.
