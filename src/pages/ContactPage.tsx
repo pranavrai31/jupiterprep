@@ -39,7 +39,7 @@ export default function ContactPage() {
             Get in touch
           </h1>
           <p className="text-stone-600 text-lg mb-16 max-w-xl">
-            Ready to start? Schedule a free 15-minute consultation to discuss goals and create a personalized plan.
+            Ready to start? Schedule a free 30-minute consultation to discuss goals and create a personalized plan.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16 pb-16 border-b border-stone-200">
