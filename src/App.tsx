@@ -4,27 +4,9 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ReferralsPage from './pages/ReferralsPage';
+import { JupiterFullLogo } from './components/JupiterLogo';
 
 type Tab = 'home' | 'about' | 'referrals' | 'contact';
-
-function JupiterLogo() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
-      <circle cx="16" cy="16" r="13" fill="url(#jupiterGrad)" />
-      <ellipse cx="16" cy="12" rx="8" ry="2.5" fill="#d97706" opacity="0.5" />
-      <ellipse cx="16" cy="16" rx="10" ry="1.5" fill="#b45309" opacity="0.4" />
-      <ellipse cx="16" cy="20" rx="9" ry="2" fill="#d97706" opacity="0.5" />
-      <ellipse cx="16" cy="16" rx="10" ry="1.5" fill="#f59e0b" opacity="0.3" />
-      <defs>
-        <radialGradient id="jupiterGrad" cx="30%" cy="30%" r="70%">
-          <stop offset="0%" stopColor="#fbbf24" />
-          <stop offset="40%" stopColor="#d97706" />
-          <stop offset="100%" stopColor="#92400e" />
-        </radialGradient>
-      </defs>
-    </svg>
-  );
-}
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('home');
@@ -44,28 +26,25 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-stone-50">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-md border-b border-stone-200">
+    <div className="min-h-screen" style={{ backgroundColor: '#FFF7ED' }}>
+      {/* Nav */}
+      <nav style={{ backgroundColor: 'rgba(255,247,237,0.92)', borderBottom: '1px solid #F59E0B22' }}
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-center h-16">
-            <button
-              onClick={() => setActiveTab('home')}
-              className="flex items-center gap-3 text-xl font-semibold text-stone-900 tracking-tight"
-            >
-              <JupiterLogo />
-              <span>Jupiter Prep</span>
-            </button>
+            <button onClick={() => setActiveTab('home')} className="flex items-center">
+              <JupiterFullLogo height={40} />
 
             <div className="hidden md:flex gap-8">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`text-sm font-medium transition-colors ${
-                    activeTab === tab.id
-                      ? 'text-stone-900'
-                      : 'text-stone-500 hover:text-stone-900'
-                  }`}
+                  className="text-sm font-medium transition-colors"
+                  style={{
+                    color: activeTab === tab.id ? '#0F172A' : '#6B7280',
+                    fontWeight: activeTab === tab.id ? 700 : 500,
+                  }}
                 >
                   {tab.label}
                 </button>
@@ -73,27 +52,22 @@ function App() {
             </div>
 
             <button
-              className="md:hidden p-2 hover:bg-stone-100 transition-colors"
+              className="md:hidden p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              style={{ color: '#0F172A' }}
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
 
           {isMenuOpen && (
-            <div className="md:hidden pb-4 space-y-2">
+            <div className="md:hidden pb-4 space-y-1">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => {
-                    setActiveTab(tab.id);
-                    setIsMenuOpen(false);
-                  }}
-                  className={`w-full text-left px-4 py-2 text-sm font-medium transition-colors ${
-                    activeTab === tab.id
-                      ? 'text-stone-900'
-                      : 'text-stone-500 hover:text-stone-900'
-                  }`}
+                  onClick={() => { setActiveTab(tab.id); setIsMenuOpen(false); }}
+                  className="w-full text-left px-4 py-2 text-sm font-medium transition-colors"
+                  style={{ color: activeTab === tab.id ? '#0F172A' : '#6B7280' }}
                 >
                   {tab.label}
                 </button>
@@ -110,24 +84,23 @@ function App() {
         {activeTab === 'contact' && <ContactPage />}
       </main>
 
-      <footer className="bg-stone-900 text-stone-50 py-16 px-6">
+      {/* Footer */}
+      <footer style={{ backgroundColor: '#0F172A', color: '#FFF7ED' }} className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start gap-8">
             <div className="flex items-center gap-3">
-              <JupiterLogo />
-              <div>
-                <p className="text-xl font-semibold mb-1">Jupiter Prep</p>
-                <p className="text-stone-500 text-sm">Higher scores. Better outcomes.</p>
-              </div>
+              <JupiterFullLogo height={48} />
             </div>
             <div className="flex flex-col md:items-end gap-2">
-              <a href="mailto:jupiterprep1@gmail.com" className="text-stone-400 hover:text-stone-50 transition-colors text-sm">
+              <a href="mailto:jupiterprep1@gmail.com"
+                style={{ color: '#94A3B8', fontSize: '14px' }}
+                className="hover:text-white transition-colors">
                 jupiterprep1@gmail.com
               </a>
             </div>
           </div>
-          <div className="border-t border-stone-800 mt-8 pt-8">
-            <p className="text-stone-600 text-xs">
+          <div style={{ borderTop: '1px solid #1E293B' }} className="mt-8 pt-8">
+            <p style={{ color: '#475569', fontSize: '12px' }}>
               &copy; {new Date().getFullYear()} Jupiter Prep. All rights reserved.
             </p>
           </div>

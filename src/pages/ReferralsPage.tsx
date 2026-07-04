@@ -29,7 +29,7 @@ const REFERRALS: Referral[] = [
     student_name: 'Aarav Verenkar',
     tag: 'Jupiter SAT',
     testimonial: "Jupiter Prep's SAT tutoring is phenomenal. Jupiter Prep's style of teaching and methods of explanation are beyond what a regular tutor can provide for someone. The explanations are in-depth and thorough, and Jupiter Prep's lessons are very consistent to make sure you truly learn the material. 100% recommend getting tutored by Jupiter Prep!",
-    image_path: '/IMG_2811.jpg',
+    image_path: '/images/tutors/aarav.png',
   },
 ];
 
