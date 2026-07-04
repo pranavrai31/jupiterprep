@@ -19,7 +19,7 @@ const tutors = [
   {
     name: 'Andrey Vasilyev',
     role: 'Tutor',
-    school: 'Incoming Senior — American Heritage School',
+    school: 'Rising Senior — American Heritage School',
     sat: '1540',
     image: '/images/tutors/FullSizeRender_(1).jpeg',
   },
