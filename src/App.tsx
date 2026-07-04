@@ -34,6 +34,7 @@ function App() {
           <div className="flex justify-between items-center h-16">
             <button onClick={() => setActiveTab('home')} className="flex items-center">
               <JupiterFullLogo height={40} />
+            </button>
 
             <div className="hidden md:flex gap-8">
               {tabs.map((tab) => (
