@@ -67,35 +67,38 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Founders</p>
           <h1 className="text-stone-900 mb-16">Meet the founders</h1>
 
-          <div className="grid md:grid-cols-2 gap-10 mb-20 max-w-2xl">
-            {founders.map((founder) => (
-              <div key={founder.name}>
-                <div className="aspect-[3/4] bg-stone-200 overflow-hidden mb-5">
-                  <img
-                    src={founder.image}
-                    alt={founder.name}
-                    className="w-full h-full object-cover object-top"
-                  />
+         <div className="flex flex-col md:flex-row gap-12 mb-20 items-start">
+            {/* Founder photos side by side */}
+            <div className="flex gap-6 flex-shrink-0">
+              {founders.map((founder) => (
+                <div key={founder.name} className="w-36">
+                  <div className="aspect-[3/4] bg-stone-200 overflow-hidden mb-3">
+                    <img
+                      src={founder.image}
+                      alt={founder.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <p className="text-amber-600 text-xs font-medium tracking-wider uppercase mb-0.5">{founder.role}</p>
+                  <h3 className="text-stone-900 font-semibold text-sm leading-snug mb-0.5">{founder.name}</h3>
+                  <p className="text-stone-500 text-xs">{founder.school}</p>
                 </div>
-                <p className="text-amber-600 text-xs font-medium tracking-wider uppercase mb-1">{founder.role}</p>
-                <h3 className="text-stone-900 font-semibold text-lg leading-snug mb-1">{founder.name}</h3>
-                <p className="text-stone-500 text-sm">{founder.school}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="max-w-2xl border-l-4 border-amber-500 pl-8">
-            <p className="text-stone-700 text-lg leading-relaxed mb-5">
-              What sets Jupiter Prep apart isn't just our results — it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
-            </p>
-            <p className="text-stone-700 text-lg leading-relaxed mb-5">
-              Every tutor on our team has been personally trained by us. We've passed on what we know works, while giving each of them the freedom to develop their own natural teaching style. The result is a tight-knit group of educators who are not just skilled — they genuinely care about the students they work with.
-            </p>
-            <p className="text-stone-700 text-lg leading-relaxed">
-              We started Jupiter Prep because we wanted to offer something different: real mentorship, proven strategies, and the kind of personalized attention that creates lasting improvement. We're proud of what this team has built, and we're just getting started.
-            </p>
+            {/* Bio to the right */}
+            <div className="border-l-4 border-amber-500 pl-8">
+              <p className="text-stone-700 text-lg leading-relaxed mb-5">
+                What sets Jupiter Prep apart isn't just our results — it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
+              </p>
+              <p className="text-stone-700 text-lg leading-relaxed mb-5">
+                Every tutor on our team has been personally trained by us. We've passed on what we know works, while giving each of them the freedom to develop their own natural teaching style. The result is a tight-knit group of educators who are not just skilled — they genuinely care about the students they work with.
+              </p>
+              <p className="text-stone-700 text-lg leading-relaxed">
+                We started Jupiter Prep because we wanted to offer something different: real mentorship, proven strategies, and the kind of personalized attention that creates lasting improvement. We're proud of what this team has built, and we're just getting started.
+              </p>
+            </div>
           </div>
-        </div>
       </section>
 
       {/* Tutors section */}
