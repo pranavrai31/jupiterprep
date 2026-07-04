@@ -61,14 +61,12 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
   return (
     <div className="bg-stone-50">
 
-      {/* Founders section */}
       <section className="px-6 pt-24 pb-20">
         <div className="max-w-6xl mx-auto">
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Founders</p>
           <h1 className="text-stone-900 mb-16">Meet the founders</h1>
 
-         <div className="flex flex-col md:flex-row gap-12 mb-20 items-start">
-            {/* Founder photos side by side */}
+          <div className="flex flex-col md:flex-row gap-12 mb-20 items-start">
             <div className="flex gap-6 flex-shrink-0">
               {founders.map((founder) => (
                 <div key={founder.name} className="w-36">
@@ -86,7 +84,6 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
               ))}
             </div>
 
-            {/* Bio to the right */}
             <div className="border-l-4 border-amber-500 pl-8">
               <p className="text-stone-700 text-lg leading-relaxed mb-5">
                 What sets Jupiter Prep apart isn't just our results — it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
@@ -99,9 +96,9 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
               </p>
             </div>
           </div>
+        </div>
       </section>
 
-      {/* Tutors section */}
       <section className="px-6 py-20 border-t border-stone-200">
         <div className="max-w-6xl mx-auto">
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Team</p>
@@ -109,7 +106,6 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
           <p className="text-stone-500 text-lg max-w-xl mb-16">
             Elite students from top universities who know exactly what it takes to score at the highest levels.
           </p>
-
           <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-5 lg:overflow-visible">
             {tutors.map((tutor) => (
               <div key={tutor.name} className="flex-none w-48 snap-start lg:w-auto">
@@ -130,7 +126,6 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         </div>
       </section>
 
-      {/* Teaching philosophy */}
       <section className="py-24 px-6 border-t border-stone-200">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-stone-900 mb-12">Teaching philosophy</h2>
@@ -154,7 +149,6 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-24 px-6 bg-stone-900 text-stone-50">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-white mb-4">Let's connect</h2>
