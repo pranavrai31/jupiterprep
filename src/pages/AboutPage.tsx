@@ -109,14 +109,13 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
           alt=""
           aria-hidden="true"
           className="absolute right-6 top-0 w-72 opacity-90 mascot-bounce"
-          style={{ transform: 'rotate(37deg)', transformOrigin: 'center center' }}
         />
       </div>
 
       <style>{`
         @keyframes bounce-gentle {
-          0%, 100% { transform: rotate(37deg) translateY(0px); }
-          50% { transform: rotate(37deg) translateY(-12px); }
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-12px); }
         }
         .mascot-bounce {
           animation: bounce-gentle 3s ease-in-out infinite;
