@@ -103,15 +103,25 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
       </section>
 
       {/* Mascot divider between founders and tutors */}
-      <div className="relative max-w-6xl mx-auto px-6 h-32 overflow-hidden">
+      <div className="relative max-w-6xl mx-auto px-6 h-48 overflow-visible">
         <img
           src="/mascot.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-6 -bottom-4 w-72 opacity-90"
+          className="absolute right-6 top-0 w-72 opacity-90 mascot-bounce"
           style={{ transform: 'rotate(37deg)', transformOrigin: 'center center' }}
         />
       </div>
+
+      <style>{`
+        @keyframes bounce-gentle {
+          0%, 100% { transform: rotate(37deg) translateY(0px); }
+          50% { transform: rotate(37deg) translateY(-12px); }
+        }
+        .mascot-bounce {
+          animation: bounce-gentle 3s ease-in-out infinite;
+        }
+      `}</style>
 
       {/* Tutors section */}
       <section className="px-6 pb-16 pt-0">
