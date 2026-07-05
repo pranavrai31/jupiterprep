@@ -58,6 +58,13 @@ const tutors = [
     sat: '1510',
     image: '/images/tutors/alan.jpeg',
   },
+  {
+    name: 'Adina Brody',
+    role: 'Tutor',
+    school: 'MAST @ FIU, Rising Senior',
+    sat: 'ACT: 36',
+    image: '/images/tutors/adina.jpeg',
+  },
 ];
 
 type AboutPageProps = {
@@ -150,7 +157,7 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
                 <p className="text-amber-600 text-xs font-medium tracking-wider uppercase mb-1">{tutor.role}</p>
                 <h3 className="text-stone-900 font-semibold text-sm leading-snug mb-1">{tutor.name}</h3>
                 <p className="text-stone-500 text-xs leading-relaxed mb-1">{tutor.school}</p>
-                <p className="text-stone-700 text-xs font-medium">SAT: {tutor.sat}</p>
+                <p className="text-stone-700 text-xs font-medium">{tutor.sat.startsWith('ACT') ? tutor.sat : `SAT: ${tutor.sat}`}</p>
               </div>
             ))}
           </div>

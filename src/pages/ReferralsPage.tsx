@@ -38,6 +38,20 @@ const REFERRALS: Referral[] = [
     testimonial: "With Jupiter Prep, my SAT score jumped drastically. After just a couple sessions, my score increased by over 200 points and I felt a great amount of confidence from the tutoring sessions. At first, I struggled with math, but since I started taking tutoring lessons, I felt so good with it and had no worries whatsoever. If I had to recommend anyone I'd definitely say Jupiter Prep because they know what they're doing.",
     image_path: '/images/tutors/asher.jpeg',
   },
+  {
+    id: '5',
+    student_name: 'Omar Abouelenin',
+    tag: 'Jupiter SAT',
+    testimonial: "Jupiter Prep's tutoring was very helpful, and I was able to obtain all the information easily. I was able to quickly learn new tips and tricks that have helped me immensely while taking the SAT.",
+    image_path: '/images/tutors/omar.jpg',
+  },
+  {
+    id: '6',
+    student_name: 'Leo Hillock',
+    tag: 'Jupiter SAT',
+    testimonial: "I've been struggling on getting my math score up on the SAT, and so I started receiving tutoring from Jupiter Prep. Ever since, I've learned many little tricks that help in so many situations. My tutor was great at explaining things so that you not only understand them in the moment, but so that the concepts also stay with you in the long run. I'm confident that on my next SAT I'll be able to improve my score by great margins because of Jupiter Prep.",
+    image_path: '/images/tutors/leo.jpeg',
+  },
 ];
 
 type ReferralsPageProps = {
