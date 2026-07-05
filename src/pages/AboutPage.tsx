@@ -51,6 +51,13 @@ const tutors = [
     sat: '1570',
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_06_32_14_PM.png',
   },
+  {
+    name: 'Alan Joseph',
+    role: 'Tutor',
+    school: 'American Heritage School, Rising Senior',
+    sat: '1510',
+    image: '/images/tutors/alan.jpeg',
+  },
 ];
 
 type AboutPageProps = {
@@ -130,9 +137,9 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
           <p className="text-stone-500 text-lg max-w-xl mb-16">
             Elite students from top universities who know exactly what it takes to score at the highest levels.
           </p>
-          <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-5 lg:overflow-visible">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {tutors.map((tutor) => (
-              <div key={tutor.name} className="flex-none w-48 snap-start lg:w-auto">
+              <div key={tutor.name}>
                 <div className="aspect-[3/4] bg-stone-200 overflow-hidden mb-4">
                   <img
                     src={tutor.image}
