@@ -108,8 +108,8 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
           src="/mascot.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-6 -bottom-4 w-48 opacity-90"
-          style={{ transform: 'rotate(-45deg)', transformOrigin: 'center center' }}
+          className="absolute right-6 -bottom-4 w-72 opacity-90"
+          style={{ transform: 'rotate(37deg)', transformOrigin: 'center center' }}
         />
       </div>
 
