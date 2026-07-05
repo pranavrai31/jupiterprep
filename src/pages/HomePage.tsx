@@ -32,7 +32,7 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
             <img
               src="/mascot.png"
               alt="Jupiter Prep mascot"
-              className="w-full max-w-sm md:max-w-md mascot-float"
+              className="w-full max-w-md md:max-w-lg mascot-float"
               style={{ objectFit: 'contain', background: 'transparent' }}
             />
           </div>
@@ -70,13 +70,16 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
           </p>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
             {[
-              { title: 'SAT Tutoring', desc: 'Targeted instruction across Reading & Writing and Math, with proven strategies to maximize your score.' },
-              { title: 'ACT Tutoring', desc: 'Full-test preparation covering English, Math, Reading, and Science with personalized pacing plans.' },
-              { title: 'College Consulting', desc: 'Guidance on school selection, application strategy, essays, and positioning to stand out to admissions.' },
-              { title: 'AP & Math Help', desc: 'Subject-level support for AP courses and math from Algebra through Calculus and beyond.' },
-            ].map(({ title, desc }) => (
+              { title: 'SAT Tutoring', desc: 'Targeted instruction across Reading & Writing and Math, with proven strategies to maximize your score.', logo: '/logo-sat.png' },
+              { title: 'ACT Tutoring', desc: 'Full-test preparation covering English, Math, Reading, and Science with personalized pacing plans.', logo: '/logo-act.png' },
+              { title: 'College Consulting', desc: 'Guidance on school selection, application strategy, essays, and positioning to stand out to admissions.', logo: '/logo-acorns.jpg' },
+              { title: 'AP & Math Help', desc: 'Subject-level support for AP courses and math from Algebra through Calculus and beyond.', logo: '/logo-ap.png' },
+            ].map(({ title, desc, logo }) => (
               <div key={title} className="border-t-2 border-stone-200 pt-8">
-                <h3 className="text-stone-900 font-bold text-xl mb-3">{title}</h3>
+                <div className="flex items-center gap-3 mb-3">
+                  <img src={logo} alt={title} className="w-8 h-8 object-contain rounded" />
+                  <h3 className="text-stone-900 font-bold text-xl">{title}</h3>
+                </div>
                 <p className="text-stone-500" style={{ lineHeight: 1.7 }}>{desc}</p>
               </div>
             ))}

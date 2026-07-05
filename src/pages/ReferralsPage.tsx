@@ -21,14 +21,14 @@ const REFERRALS: Referral[] = [
     id: '2',
     student_name: 'Enzo Wjuniski',
     tag: 'Jupiter SAT',
-    testimonial: "Before starting tutoring with Jupiter Prep, I was overrelying on Desmos and kept cutting corners on math problems everywhere on the SAT. With Jupiter Prep's help, I grasped how to fully understand the concepts behind each question and with only 3 weeks of tutoring, increased my score by 70 points.",
+    testimonial: "Before starting tutoring with Jupiter Prep, I was overrelying on Desmos and kept cutting corners on math problems everywhere on the SAT. With Jupiter Prep's help, Jupiter Prep got me to fully understand the concepts behind each question and with only 3 weeks of tutoring, increased my score by 70 points.",
     image_path: '/7C8BB174-E0AE-4215-ABAB-C9D403CCC5DE.jpeg',
   },
   {
     id: '3',
     student_name: 'Aarav Verenkar',
     tag: 'Jupiter SAT',
-    testimonial: "Jupiter Prep's SAT tutoring is phenomenal. Their style of teaching and methods of explanation are beyond what a regular tutor can provide for someone. The explanations are in-depth and thorough, and the lessons are very consistent to make sure you truly learn the material. 100% recommend getting tutored by Jupiter Prep!",
+    testimonial: "Jupiter Prep's SAT tutoring is phenomenal. Jupiter Prep's style of teaching and methods of explanation are beyond what a regular tutor can provide for someone. The explanations are in-depth and thorough, and Jupiter Prep's lessons are very consistent to make sure you truly learn the material. 100% recommend getting tutored by Jupiter Prep!",
     image_path: '/images/tutors/aarav.png',
   },
 ];
@@ -45,7 +45,9 @@ export default function ReferralsPage({ onNavigateContact }: ReferralsPageProps)
       <section className="px-6 pt-24 pb-16">
         <div className="max-w-6xl mx-auto">
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Results</p>
-          <h1 className="text-stone-900 mb-8">Success stories</h1>
+          <h1 className="text-stone-900 mb-8">
+            Success stories
+          </h1>
           <p className="text-stone-600 text-lg max-w-xl mb-16">
             Real outcomes from students who put in the work.
           </p>
@@ -96,7 +98,9 @@ export default function ReferralsPage({ onNavigateContact }: ReferralsPageProps)
                     <p className="text-stone-300 leading-relaxed italic">
                       "{referral.testimonial}"
                     </p>
-                    <p className="text-stone-500 text-xs mt-6">Click to collapse</p>
+                    <p className="text-stone-500 text-xs mt-6">
+                      Click to collapse
+                    </p>
                   </div>
                 )}
               </div>
@@ -107,7 +111,9 @@ export default function ReferralsPage({ onNavigateContact }: ReferralsPageProps)
 
       <section className="py-24 px-6 bg-stone-900 text-stone-50">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-white mb-4">Proven track record</h2>
+          <h2 className="text-white mb-4">
+            Proven track record
+          </h2>
           <p className="text-stone-400 text-lg mb-8">
             Each success represents dedication, personalized instruction, and real results.
           </p>

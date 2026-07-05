@@ -4,13 +4,13 @@ const founders = [
   {
     name: 'Pranav Rai',
     role: 'Co-Founder',
-    school: 'University of Michigan Ross School of Business Class of 2030',
+    school: 'Incoming Freshman — University of Michigan Ross School of Business',
     image: '/images/tutors/Pranav_headshot.png',
   },
   {
     name: 'Hamid Moghaddam Adames',
     role: 'Co-Founder',
-    school: 'University of Florida Class of 2030',
+    school: 'Incoming Freshman — University of Florida',
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_05_47_32_PM.png',
   },
 ];
@@ -19,35 +19,35 @@ const tutors = [
   {
     name: 'Andrey Vasilyev',
     role: 'Tutor',
-    school: 'American Heritage School Class of 2026',
+    school: 'Incoming Senior — American Heritage School',
     sat: '1540',
     image: '/images/tutors/FullSizeRender_(1).jpeg',
   },
   {
     name: 'Anagha Iyer',
     role: 'Tutor',
-    school: 'Stanford University Class of 2030',
+    school: 'Incoming Freshman — Stanford University',
     sat: '1550',
     image: '/images/tutors/Facetune_08-05-2026-18-50-34_(1).jpeg',
   },
   {
     name: 'Aaron Pinto',
     role: 'Tutor',
-    school: 'Carnegie Mellon University Class of 2030',
+    school: 'Incoming Freshman — Carnegie Mellon University',
     sat: '1540',
     image: '/images/tutors/dfb63f4e-83c8-439a-895d-e67bc6e97fe8_(1).JPEG',
   },
   {
     name: 'Nathan Lee',
     role: 'Tutor',
-    school: 'UNC Chapel Hill Class of 2030',
+    school: 'Incoming Freshman — UNC Chapel Hill',
     sat: '1540',
     image: '/images/tutors/IMG_8740.JPEG',
   },
   {
     name: 'Jason Tang',
     role: 'Tutor',
-    school: 'University of Pennsylvania Class of 2030',
+    school: 'Incoming Freshman — University of Pennsylvania',
     sat: '1570',
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_06_32_14_PM.png',
   },
@@ -61,15 +61,17 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
   return (
     <div className="bg-stone-50">
 
-      <section className="px-6 pt-24 pb-20">
+      {/* Founders section */}
+      <section className="px-6 pt-24 pb-16">
         <div className="max-w-6xl mx-auto">
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Founders</p>
-          <h1 className="text-stone-900 mb-16">Meet the founders</h1>
+          <h1 className="text-stone-900 mb-12">Meet the founders</h1>
 
-          <div className="flex flex-col md:flex-row gap-12 mb-20 items-start">
+          <div className="flex flex-col md:flex-row gap-10 items-start">
+            {/* Founder photos */}
             <div className="flex gap-6 flex-shrink-0">
               {founders.map((founder) => (
-                <div key={founder.name} className="w-36">
+                <div key={founder.name} className="w-48">
                   <div className="aspect-[3/4] bg-stone-200 overflow-hidden mb-3">
                     <img
                       src={founder.image}
@@ -84,14 +86,15 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
               ))}
             </div>
 
+            {/* Bio to the right */}
             <div className="border-l-4 border-amber-500 pl-8">
-              <p className="text-stone-700 text-lg leading-relaxed mb-5">
-                What sets Jupiter Prep apart isn't just our results, it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
+              <p className="text-stone-700 text-sm leading-relaxed mb-4">
+                What sets Jupiter Prep apart isn't just our results — it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
               </p>
-              <p className="text-stone-700 text-lg leading-relaxed mb-5">
-                Every tutor on our team has been professionaly trained by us. We've passed on what we know works, while giving each of them the freedom to develop their own natural teaching style. The result is a tight-knit group of educators who are skilled and genuinely care about the students they work with.
+              <p className="text-stone-700 text-sm leading-relaxed mb-4">
+                Every tutor on our team has been personally trained by us. We've passed on what we know works, while giving each of them the freedom to develop their own natural teaching style. The result is a tight-knit group of educators who are not just skilled — they genuinely care about the students they work with.
               </p>
-              <p className="text-stone-700 text-lg leading-relaxed">
+              <p className="text-stone-700 text-sm leading-relaxed">
                 We started Jupiter Prep because we wanted to offer something different: real mentorship, proven strategies, and the kind of personalized attention that creates lasting improvement. We're proud of what this team has built, and we're just getting started.
               </p>
             </div>
@@ -99,7 +102,8 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         </div>
       </section>
 
-      <section className="px-6 py-20 border-t border-stone-200">
+      {/* Tutors section — no border-t, flows directly */}
+      <section className="px-6 py-16">
         <div className="max-w-6xl mx-auto">
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Team</p>
           <h2 className="text-stone-900 mb-4">Meet the tutors</h2>
@@ -126,6 +130,7 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         </div>
       </section>
 
+      {/* Teaching philosophy */}
       <section className="py-24 px-6 border-t border-stone-200">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-stone-900 mb-12">Teaching philosophy</h2>
@@ -149,6 +154,7 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-24 px-6 bg-stone-900 text-stone-50">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-white mb-4">Let's connect</h2>
