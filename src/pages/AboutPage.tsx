@@ -10,7 +10,7 @@ const founders = [
   {
     name: 'Hamid Moghaddam Adames',
     role: 'Co-Founder',
-    school: 'University of Florida Class of 2030'',
+    school: 'University of Florida Class of 2030',
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_05_47_32_PM.png',
   },
 ];
@@ -26,28 +26,28 @@ const tutors = [
   {
     name: 'Anagha Iyer',
     role: 'Tutor',
-    school: 'Stanford University Class of 2030'',
+    school: 'Stanford University Class of 2030',
     sat: '1550',
     image: '/images/tutors/Facetune_08-05-2026-18-50-34_(1).jpeg',
   },
   {
     name: 'Aaron Pinto',
     role: 'Tutor',
-    school: 'Carnegie Mellon University Class of 2030'',
+    school: 'Carnegie Mellon University Class of 2030',
     sat: '1540',
     image: '/images/tutors/dfb63f4e-83c8-439a-895d-e67bc6e97fe8_(1).JPEG',
   },
   {
     name: 'Nathan Lee',
     role: 'Tutor',
-    school: 'UNC Chapel Hill Class of 2030'',
+    school: 'UNC Chapel Hill Class of 2030',
     sat: '1540',
     image: '/images/tutors/IMG_8740.JPEG',
   },
   {
     name: 'Jason Tang',
     role: 'Tutor',
-    school: 'University of Pennsylvania Class of 2030'',
+    school: 'University of Pennsylvania Class of 2030',
     sat: '1570',
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_06_32_14_PM.png',
   },
