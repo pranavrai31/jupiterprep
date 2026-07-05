@@ -4,13 +4,13 @@ const founders = [
   {
     name: 'Pranav Rai',
     role: 'Co-Founder',
-    school: 'University of Michigan Ross School of Business Class of 2030',
+    school: 'University of Michigan Ross School of Business, Class of 2030',
     image: '/images/tutors/Pranav_headshot.png',
   },
   {
     name: 'Hamid Moghaddam Adames',
     role: 'Co-Founder',
-    school: 'University of Florida Class of 2030',
+    school: 'University of Florida, Class of 2030',
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_05_47_32_PM.png',
   },
 ];
@@ -19,35 +19,35 @@ const tutors = [
   {
     name: 'Andrey Vasilyev',
     role: 'Tutor',
-    school: 'Rising Senior American Heritage School',
+    school: 'American Heritage School, Rising Senior',
     sat: '1540',
     image: '/images/tutors/FullSizeRender_(1).jpeg',
   },
   {
     name: 'Anagha Iyer',
     role: 'Tutor',
-    school: 'Stanford University Class of 2030',
+    school: 'Stanford University, Class of 2030',
     sat: '1550',
     image: '/images/tutors/Facetune_08-05-2026-18-50-34_(1).jpeg',
   },
   {
     name: 'Aaron Pinto',
     role: 'Tutor',
-    school: 'Carnegie Mellon University Class of 2030',
+    school: 'Carnegie Mellon University, Class of 2030',
     sat: '1540',
     image: '/images/tutors/dfb63f4e-83c8-439a-895d-e67bc6e97fe8_(1).JPEG',
   },
   {
     name: 'Nathan Lee',
     role: 'Tutor',
-    school: 'UNC Chapel Hill Class of 2030',
+    school: 'UNC Chapel Hill, Class of 2030',
     sat: '1540',
     image: '/images/tutors/IMG_8740.JPEG',
   },
   {
     name: 'Jason Tang',
     role: 'Tutor',
-    school: 'University of Pennsylvania Class of 2030',
+    school: 'University of Pennsylvania, Class of 2030',
     sat: '1570',
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_06_32_14_PM.png',
   },
@@ -62,7 +62,7 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
     <div className="bg-stone-50">
 
       {/* Founders section */}
-      <section className="px-6 pt-24 pb-16">
+      <section className="px-6 pt-24 pb-0">
         <div className="max-w-6xl mx-auto">
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Founders</p>
           <h1 className="text-stone-900 mb-12">Meet the founders</h1>
@@ -87,14 +87,14 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
             </div>
 
             {/* Bio to the right */}
-            <div className="border-l-4 border-amber-500 pl-8">
-              <p className="text-stone-700 text-sm leading-relaxed mb-4">
-                What sets Jupiter Prep apart isn't just our results — it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
+            <div className="border-l-4 border-amber-500 pl-6 max-w-sm">
+              <p className="text-stone-700 text-base leading-relaxed mb-4">
+                What sets Jupiter Prep apart isn't just our results, it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
               </p>
-              <p className="text-stone-700 text-sm leading-relaxed mb-4">
-                Every tutor on our team has been personally trained by us. We've passed on what we know works, while giving each of them the freedom to develop their own natural teaching style. The result is a tight-knit group of educators who are not just skilled — they genuinely care about the students they work with.
+              <p className="text-stone-700 text-base leading-relaxed mb-4">
+                Every tutor on our team has been professionally trained by us. We've passed on what we know works, while giving each of them the freedom to develop their own natural teaching style.
               </p>
-              <p className="text-stone-700 text-sm leading-relaxed">
+              <p className="text-stone-700 text-base leading-relaxed">
                 We started Jupiter Prep because we wanted to offer something different: real mentorship, proven strategies, and the kind of personalized attention that creates lasting improvement. We're proud of what this team has built, and we're just getting started.
               </p>
             </div>
@@ -102,8 +102,19 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         </div>
       </section>
 
-      {/* Tutors section — no border-t, flows directly */}
-      <section className="px-6 py-16">
+      {/* Mascot divider between founders and tutors */}
+      <div className="relative max-w-6xl mx-auto px-6 h-32 overflow-hidden">
+        <img
+          src="/mascot.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute right-6 -bottom-4 w-36 opacity-90"
+          style={{ transform: 'rotate(-45deg)', transformOrigin: 'center center' }}
+        />
+      </div>
+
+      {/* Tutors section */}
+      <section className="px-6 pb-16 pt-0">
         <div className="max-w-6xl mx-auto">
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Team</p>
           <h2 className="text-stone-900 mb-4">Meet the tutors</h2>

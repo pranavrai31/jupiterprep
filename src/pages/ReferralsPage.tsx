@@ -45,9 +45,10 @@ export default function ReferralsPage({ onNavigateContact }: ReferralsPageProps)
       <section className="px-6 pt-24 pb-16">
         <div className="max-w-6xl mx-auto">
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Results</p>
-          <h1 className="text-stone-900 mb-8">
-            Success stories
-          </h1>
+          <div className="flex items-center gap-4 mb-8">
+            <h1 className="text-stone-900">Success stories</h1>
+            <img src="/mascot.png" alt="" aria-hidden="true" className="w-20 h-20 object-contain" />
+          </div>
           <p className="text-stone-600 text-lg max-w-xl mb-16">
             Real outcomes from students who put in the work.
           </p>
