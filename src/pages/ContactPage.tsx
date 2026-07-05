@@ -5,8 +5,6 @@ export default function ContactPage() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    // Without a Formspree endpoint configured, let the form submit natively
-    // via mailto (opens the visitor's email app with the message pre-filled).
     if (!CONTACT_FORM_ENDPOINT) return;
 
     e.preventDefault();
@@ -35,11 +33,12 @@ export default function ContactPage() {
       <section className="px-6 pt-24 pb-16">
         <div className="max-w-3xl mx-auto">
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Contact</p>
-          <h1 className="text-stone-900 mb-8">
-            Get in touch
-          </h1>
+          <div className="flex items-center gap-4 mb-8">
+            <h1 className="text-stone-900">Get in touch</h1>
+            <img src="/mascot.png" alt="" aria-hidden="true" className="w-24 h-24 object-contain ml-2" />
+          </div>
           <p className="text-stone-600 text-lg mb-16 max-w-xl">
-            Ready to start? Schedule a free 15-minute consultation to discuss goals and create a personalized plan.
+            Ready to start? Schedule a free 30-minute consultation to discuss goals and create a personalized plan.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16 pb-16 border-b border-stone-200">
@@ -155,7 +154,6 @@ export default function ContactPage() {
                   </div>
                   <p className="text-stone-600 pl-10">Discussion of current scores, goals, and timeline.</p>
                 </div>
-
                 <div>
                   <div className="flex items-center gap-4 mb-3">
                     <span className="text-amber-600 text-sm font-medium">02</span>
@@ -163,7 +161,6 @@ export default function ContactPage() {
                   </div>
                   <p className="text-stone-600 pl-10">Customized tutoring strategy tailored to specific needs.</p>
                 </div>
-
                 <div>
                   <div className="flex items-center gap-4 mb-3">
                     <span className="text-amber-600 text-sm font-medium">03</span>
@@ -172,7 +169,6 @@ export default function ContactPage() {
                   <p className="text-stone-600 pl-10">Session frequency, scheduling, and investment discussion.</p>
                 </div>
               </div>
-
               <div className="mt-12 p-6 bg-stone-100 border border-stone-200">
                 <p className="text-stone-600 text-sm leading-relaxed">
                   Responses within 24 hours. For fastest reply, call directly.

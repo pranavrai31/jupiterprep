@@ -87,7 +87,7 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
             </div>
 
             {/* Bio to the right */}
-            <div className="border-l-4 border-amber-500 pl-6 max-w-sm">
+            <div className="border-l-4 border-amber-500 pl-6 max-w-lg">
               <p className="text-stone-700 text-base leading-relaxed mb-4">
                 What sets Jupiter Prep apart isn't just our results, it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
               </p>
@@ -108,7 +108,7 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
           src="/mascot.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-6 -bottom-4 w-36 opacity-90"
+          className="absolute right-6 -bottom-4 w-48 opacity-90"
           style={{ transform: 'rotate(-45deg)', transformOrigin: 'center center' }}
         />
       </div>
