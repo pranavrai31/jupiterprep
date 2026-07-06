@@ -52,6 +52,13 @@ const REFERRALS: Referral[] = [
     testimonial: "I've been struggling on getting my math score up on the SAT, and so I started receiving tutoring from Jupiter Prep. Ever since, I've learned many little tricks that help in so many situations. My tutor was great at explaining things so that you not only understand them in the moment, but so that the concepts also stay with you in the long run. I'm confident that on my next SAT I'll be able to improve my score by great margins because of Jupiter Prep.",
     image_path: '/images/tutors/leo.jpeg',
   },
+  {
+    id: '7',
+    student_name: 'Jade Capella',
+    tag: 'Jupiter SAT',
+    testimonial: "The way Jupiter Prep explained each problem changed how I approach the SAT. I stopped memorizing tricks and started understanding the reasoning, and that shift took me from a 1380 to a 1540. Their custom math packet was harder than anything in the official banks, so the real test felt easy.",
+    image_path: '/images/tutors/jade.jpeg',
+  },
 ];
 
 type ReferralsPageProps = {
