@@ -59,7 +59,7 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
               Better outcomes.
             </h1>
             <p className="text-stone-500 mb-10 max-w-md" style={{ fontSize: '1.15rem', lineHeight: 1.7 }}>
-              We don't use prep books. We build custom problem sets targeting your exact weak areas — because generic prep gets generic results.
+              We don't use prep books. We build custom problem sets targeting your exact weak areas , because generic prep gets generic results.
             </p>
             <CtaButton
               onNavigateContact={onNavigateContact}
@@ -94,7 +94,7 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
         </div>
       </section>
 
-      {/* What we offer — differentiated */}
+      {/* What we offer , differentiated */}
       <section className="py-24 px-6 bg-stone-50">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-stone-900 mb-3" style={{ fontWeight: 900 }}>What we offer</h2>
@@ -102,13 +102,13 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
             Personalized support across standardized testing, college admissions, and academics.
           </p>
           <p className="text-amber-600 font-medium mb-16 max-w-2xl">
-            We don't use prep books. Every student gets a custom problem set built around their specific weak areas — so you're always working on exactly what moves your score.
+            We don't use prep books. Every student gets a custom problem set built around their specific weak areas , so you're always working on exactly what moves your score.
           </p>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
             {[
-              { title: 'SAT Tutoring', desc: 'Targeted instruction across Reading & Writing and Math, with custom problem sets built from your diagnostic results — not generic workbooks.', logo: '/logo-sat.png' },
+              { title: 'SAT Tutoring', desc: 'Targeted instruction across Reading & Writing and Math, with custom problem sets built from your diagnostic results , not generic workbooks.', logo: '/logo-sat.png' },
               { title: 'ACT Tutoring', desc: 'Full-test preparation covering English, Math, Reading, and Science with personalized pacing plans tailored to your testing style.', logo: '/logo-act.png' },
-              { title: 'College Consulting', desc: 'Real guidance on school selection, essay strategy, and positioning — from tutors who just went through the process and got into top schools.', logo: '/logo-acorns.jpg' },
+              { title: 'College Consulting', desc: 'Real guidance on school selection, essay strategy, and positioning , from tutors who just went through the process and got into top schools.', logo: '/logo-acorns.jpg' },
               { title: 'AP & Math Help', desc: 'Subject-level support from Algebra through Calculus and AP courses, taught conceptually so the knowledge sticks beyond the test.', logo: '/logo-ap.png' },
             ].map(({ title, desc, logo }) => (
               <div key={title} className="border-t-2 border-stone-200 pt-8">

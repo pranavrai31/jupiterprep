@@ -12,5 +12,5 @@ export const CALENDLY_URL = 'https://calendly.com/jupiterprep1';
 //    Sign up free at https://formspree.io, create a form, and paste the
 //    endpoint it gives you here (looks like "https://formspree.io/f/xxxxxxxx").
 //    Until you do, the form falls back to opening the visitor's email app
-//    with the message pre-filled — it works, just less reliably on mobile.
+//    with the message pre-filled , it works, just less reliably on mobile.
 export const CONTACT_FORM_ENDPOINT = 'https://formspree.io/f/mnjklzyy';

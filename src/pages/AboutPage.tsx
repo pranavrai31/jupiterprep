@@ -22,8 +22,8 @@ const tutors = [
     role: 'Tutor',
     school: 'American Heritage School, Rising Senior',
     sat: '1540',
-    specializes: ['SAT', 'Mathematics', 'Coding'],
-    tip: 'On the SAT math section, always re-read what the question is actually asking before solving — half the time students solve the right equation but answer the wrong thing.',
+    specializes: ['SAT', 'Mathematics'],
+    tip: 'On the SAT math section, always re-read what the question is actually asking before solving. Half the time students solve the right equation but answer the wrong thing.',
     image: '/images/tutors/FullSizeRender_(1).jpeg',
   },
   {
@@ -31,9 +31,8 @@ const tutors = [
     role: 'Tutor',
     school: 'Stanford University, Class of 2030',
     sat: '1550',
-    specializes: ['College Consulting'],
-    note: 'Accepted to Princeton & MIT',
-    tip: 'Your college essay isn\'t about impressing anyone — it\'s about letting them hear your actual voice. Write the draft you\'d never send, then clean it up. The realness is what gets remembered.',
+    specializes: ['SAT', 'College Consulting'],
+    tip: 'Your college essay is not about impressing anyone. It is about letting them hear your actual voice. Write the draft you would never send, then clean it up. The realness is what gets remembered.',
     image: '/images/tutors/Facetune_08-05-2026-18-50-34_(1).jpeg',
   },
   {
@@ -41,8 +40,8 @@ const tutors = [
     role: 'Tutor',
     school: 'Carnegie Mellon University, Class of 2030',
     sat: '1540',
-    specializes: ['SAT', 'Coding'],
-    tip: 'Eliminate before you guess. On every multiple choice question, cross out the two answers you\'re most confident are wrong — your odds go from 25% to 50% instantly.',
+    specializes: ['SAT'],
+    tip: 'Eliminate before you guess. On every multiple choice question, cross out the two answers you are most confident are wrong. Your odds go from 25% to 50% instantly.',
     image: '/images/tutors/dfb63f4e-83c8-439a-895d-e67bc6e97fe8_(1).JPEG',
   },
   {
@@ -51,7 +50,7 @@ const tutors = [
     school: 'UNC Chapel Hill, Class of 2030',
     sat: '1540',
     specializes: ['SAT'],
-    tip: 'Time management is the hidden skill on the SAT. Practice pacing with a stopwatch before you ever worry about content — knowing when to move on is worth more than knowing one extra formula.',
+    tip: 'Time management is the hidden skill on the SAT. Practice pacing with a stopwatch before you ever worry about content. Knowing when to move on is worth more than knowing one extra formula.',
     image: '/images/tutors/IMG_8740.JPEG',
   },
   {
@@ -59,7 +58,7 @@ const tutors = [
     role: 'Tutor',
     school: 'University of Pennsylvania, Class of 2030',
     sat: '1570',
-    specializes: ['SAT', 'College Consulting', 'Mathematics'],
+    specializes: ['College Consulting', 'Mathematics'],
     tip: 'For college essays, specificity beats grandeur every time. "I learned to lead" is forgettable. "I learned to lead when our robot arm snapped 30 minutes before competition" sticks.',
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_06_32_14_PM.png',
   },
@@ -69,7 +68,7 @@ const tutors = [
     school: 'American Heritage School, Rising Senior',
     sat: '1510',
     specializes: ['SAT'],
-    tip: 'On reading passages, don\'t try to memorize everything — just get the main idea of each paragraph as you go. When a question comes up, you\'ll know exactly where to look.',
+    tip: 'On reading passages, do not try to memorize everything. Just get the main idea of each paragraph as you go. When a question comes up, you will know exactly where to look.',
     image: '/images/tutors/alan.jpeg',
   },
   {
@@ -78,7 +77,7 @@ const tutors = [
     school: 'MAST @ FIU, Rising Senior',
     sat: 'ACT: 36',
     specializes: ['ACT'],
-    tip: 'The ACT Science section is not actually testing science knowledge — it\'s testing your ability to read graphs and tables quickly. Practice data interpretation and your score will jump.',
+    tip: 'The ACT Science section is not actually testing science knowledge. It is testing your ability to read graphs and tables quickly. Practice data interpretation and your score will jump.',
     image: '/images/tutors/adina.jpeg',
   },
 ];
@@ -88,12 +87,11 @@ type AboutPageProps = {
 };
 
 export default function AboutPage({ onNavigateContact }: AboutPageProps) {
-  const [expandedTutor, setExpandedTutor] = useState<string | null>(null);
+  const [flipped, setFlipped] = useState<string | null>(null);
 
   return (
     <div className="bg-stone-50">
 
-      {/* Founders section */}
       <section className="px-6 pt-24 pb-0">
         <div className="max-w-6xl mx-auto">
           <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Founders</p>
@@ -130,12 +128,7 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
 
       {/* Mascot divider */}
       <div className="relative max-w-6xl mx-auto px-6 h-48 overflow-visible">
-        <img
-          src="/mascot.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute right-6 top-0 w-72 opacity-90 mascot-bounce"
-        />
+        <img src="/mascot.png" alt="" aria-hidden="true" className="absolute right-6 top-0 w-72 opacity-90 mascot-bounce" />
       </div>
 
       {/* Tutors section */}
@@ -146,54 +139,41 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
           <p className="text-stone-500 text-base max-w-xl mb-3">
             Elite students from top universities who know exactly what it takes to score at the highest levels.
           </p>
-          <p className="text-amber-600 text-sm mb-12">Click any tutor to see their specialty and top tip.</p>
+          <p className="text-amber-600 text-sm mb-12">Click any tutor card to flip it and see their tip.</p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {tutors.map((tutor) => (
-              <div key={tutor.name}>
-                <div
-                  className="cursor-pointer group"
-                  onClick={() => setExpandedTutor(expandedTutor === tutor.name ? null : tutor.name)}
-                >
-                  <div className="aspect-[3/4] bg-stone-200 overflow-hidden mb-4 relative">
-                    <img
-                      src={tutor.image}
-                      alt={tutor.name}
-                      className="w-full h-full object-cover object-top transition-opacity group-hover:opacity-80"
-                    />
-                    <div className="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity"
-                      style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.7) 0%, transparent 60%)' }}>
-                      <span className="text-white text-xs font-medium">View tip →</span>
+              <div
+                key={tutor.name}
+                className="flip-card cursor-pointer"
+                onClick={() => setFlipped(flipped === tutor.name ? null : tutor.name)}
+              >
+                <div className={`flip-card-inner ${flipped === tutor.name ? 'flipped' : ''}`}>
+                  {/* Front */}
+                  <div className="flip-card-front">
+                    <div className="aspect-[3/4] bg-stone-200 overflow-hidden mb-4">
+                      <img src={tutor.image} alt={tutor.name} className="w-full h-full object-cover object-top" />
+                    </div>
+                    <p className="text-amber-600 text-xs font-medium tracking-wider uppercase mb-1">{tutor.role}</p>
+                    <h3 className="text-stone-900 font-semibold text-sm leading-snug mb-1">{tutor.name}</h3>
+                    <p className="text-stone-500 text-xs leading-relaxed mb-2">{tutor.school}</p>
+                    <p className="text-stone-700 text-xs font-medium mb-2">
+                      {tutor.sat.startsWith('ACT') ? tutor.sat : `SAT: ${tutor.sat}`}
+                    </p>
+                    <div className="flex flex-wrap gap-1">
+                      {tutor.specializes.map((s) => (
+                        <span key={s} className="text-xs px-2 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 font-medium">{s}</span>
+                      ))}
                     </div>
                   </div>
-                  <p className="text-amber-600 text-xs font-medium tracking-wider uppercase mb-1">{tutor.role}</p>
-                  <h3 className="text-stone-900 font-semibold text-sm leading-snug mb-1">{tutor.name}</h3>
-                  <p className="text-stone-500 text-xs leading-relaxed mb-1">{tutor.school}</p>
-                  <p className="text-stone-700 text-xs font-medium mb-2">
-                    {tutor.sat.startsWith('ACT') ? tutor.sat : `SAT: ${tutor.sat}`}
-                  </p>
-                  <div className="flex flex-wrap gap-1">
-                    {tutor.specializes.map((s) => (
-                      <span key={s} className="text-xs px-2 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 font-medium">{s}</span>
-                    ))}
-                  </div>
-                  {'note' in tutor && tutor.note && (
-                    <p className="text-stone-500 text-xs mt-1 italic">{tutor.note}</p>
-                  )}
-                </div>
 
-                {expandedTutor === tutor.name && (
-                  <div className="mt-3 p-4 bg-stone-900 text-stone-50 col-span-1">
-                    <p className="text-amber-400 text-xs font-medium uppercase tracking-wider mb-2">Tutor tip</p>
+                  {/* Back */}
+                  <div className="flip-card-back bg-stone-900 p-4 flex flex-col justify-center">
+                    <p className="text-amber-400 text-xs font-medium uppercase tracking-wider mb-3">Tutor tip</p>
                     <p className="text-stone-300 text-sm leading-relaxed italic">"{tutor.tip}"</p>
-                    <button
-                      onClick={() => setExpandedTutor(null)}
-                      className="text-stone-500 text-xs mt-3 hover:text-stone-300 transition-colors"
-                    >
-                      Close ↑
-                    </button>
+                    <p className="text-stone-600 text-xs mt-4">Click to flip back</p>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
@@ -224,7 +204,6 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-24 px-6 bg-stone-900 text-stone-50">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-white mb-4">Let's connect</h2>
@@ -244,6 +223,25 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
           50% { transform: translateY(-12px); }
         }
         .mascot-bounce { animation: bounce-gentle 3s ease-in-out infinite; }
+
+        .flip-card { perspective: 1000px; }
+        .flip-card-inner {
+          position: relative;
+          width: 100%;
+          transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          transform-style: preserve-3d;
+        }
+        .flip-card-inner.flipped { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back {
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+        }
+        .flip-card-back {
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          transform: rotateY(180deg);
+          min-height: 100%;
+        }
       `}</style>
     </div>
   );

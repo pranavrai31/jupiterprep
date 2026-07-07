@@ -125,7 +125,7 @@ export default function ContactPage() {
 
                 {status === 'sent' && (
                   <p className="text-sm text-green-700 bg-green-50 border border-green-200 px-4 py-3">
-                    Thanks — your message is on its way. I'll get back to you within 24 hours.
+                    Thanks , your message is on its way. I'll get back to you within 24 hours.
                   </p>
                 )}
                 {status === 'error' && (
