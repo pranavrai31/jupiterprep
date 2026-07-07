@@ -59,6 +59,13 @@ const REFERRALS: Referral[] = [
     testimonial: "The way Jupiter Prep explained each problem changed how I approach the SAT. I stopped memorizing tricks and started understanding the reasoning, and that shift took me from a 1380 to a 1540. Their custom math packet was harder than anything in the official banks, so the real test felt easy.",
     image_path: '/images/tutors/jade.jpeg',
   },
+  {
+    id: '8',
+    student_name: 'Pietro Wjuniski',
+    tag: 'Jupiter SAT',
+    testimonial: "I was struggling with my geometry exams and quizzes, but Jupiter Prep helped fix that. My tutor was amazing and helped me work through every problem I had difficulty with, and even gave me some nice tips to help me memorize long formulas and cut down the work on tedious questions. If I had to recommend any service, it would definitely be Jupiter Prep.",
+    image_path: '/images/tutors/pietro.jpeg',
+  },
 ];
 
 type ReferralsPageProps = {
@@ -78,7 +85,7 @@ export default function ReferralsPage({ onNavigateContact }: ReferralsPageProps)
             <img src="/mascot.png" alt="" aria-hidden="true" className="w-36 h-36 object-contain ml-2" />
           </div>
           <p className="text-stone-600 text-lg max-w-xl mb-16">
-            Real outcomes from students who put in the work.
+            When effort meets the right guidance, results follow.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">

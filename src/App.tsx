@@ -94,9 +94,20 @@ function App() {
               <p className="text-stone-400 text-xs mt-0.5">Higher scores. Better outcomes.</p>
             </div>
           </div>
-          <a href="mailto:jupiterprep1@gmail.com" className="text-stone-400 text-sm hover:text-white transition-colors">
-            jupiterprep1@gmail.com
-          </a>
+          <div className="flex flex-col md:items-end gap-3">
+            <a href="mailto:jupiterprep1@gmail.com" className="text-stone-400 text-sm hover:text-white transition-colors">
+              jupiterprep1@gmail.com
+            </a>
+            <a href="https://www.instagram.com/jupiterprep/" target="_blank" rel="noopener noreferrer"
+              className="text-stone-400 hover:text-white transition-colors flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span className="text-sm">@jupiterprep</span>
+            </a>
+          </div>
         </div>
         <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-stone-800">
           <p className="text-stone-600 text-xs">&copy; {new Date().getFullYear()} Jupiter Prep. All rights reserved.</p>

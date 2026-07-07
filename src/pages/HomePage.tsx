@@ -1,8 +1,50 @@
+import { useEffect, useRef, useState } from 'react';
 import CtaButton from '../components/CtaButton';
 
 type HomePageProps = {
   onNavigateContact: () => void;
 };
+
+function AnimatedStat({ target, suffix, label }: { target: number; suffix: string; label: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const duration = 1800;
+          const steps = 60;
+          const increment = target / steps;
+          let current = 0;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              setCount(target);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(current));
+            }
+          }, duration / steps);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target]);
+
+  return (
+    <div ref={ref} className="text-center">
+      <p style={{ color: '#F59E0B', fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 900, fontVariantNumeric: 'tabular-nums' }}>
+        {count}{suffix}
+      </p>
+      <p className="text-stone-500 uppercase mt-1" style={{ fontSize: '11px', letterSpacing: '2px' }}>{label}</p>
+    </div>
+  );
+}
 
 export default function HomePage({ onNavigateContact }: HomePageProps) {
   return (
@@ -17,7 +59,7 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
               Better outcomes.
             </h1>
             <p className="text-stone-500 mb-10 max-w-md" style={{ fontSize: '1.15rem', lineHeight: 1.7 }}>
-              Premium tutoring designed to unlock potential and deliver results that open doors.
+              We don't use prep books. We build custom problem sets targeting your exact weak areas — because generic prep gets generic results.
             </p>
             <CtaButton
               onNavigateContact={onNavigateContact}
@@ -26,8 +68,6 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
               Book a free consultation with us!
             </CtaButton>
           </div>
-
-          {/* Mascot — transparent PNG, no box */}
           <div className="flex justify-center items-center">
             <img
               src="/mascot.png"
@@ -39,7 +79,7 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
         </div>
       </section>
 
-      {/* Proven results — dark section matching original */}
+      {/* Animated stats */}
       <section className="py-20 px-6 bg-stone-900">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-white mb-4" style={{ fontWeight: 900 }}>Proven results</h2>
@@ -47,33 +87,29 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
             Students consistently achieve significant score improvements through focused, personalized instruction.
           </p>
           <div className="grid grid-cols-3 gap-8">
-            {[
-              { value: '80+', label: 'Students Taught' },
-              { value: '150+', label: 'Avg. SAT Score Increase' },
-              { value: '100%', label: 'Satisfaction Rate' },
-            ].map(({ value, label }) => (
-              <div key={label}>
-                <p style={{ color: '#F59E0B', fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: 900 }}>{value}</p>
-                <p className="text-stone-500 uppercase mt-1" style={{ fontSize: '11px', letterSpacing: '2px' }}>{label}</p>
-              </div>
-            ))}
+            <AnimatedStat target={80} suffix="+" label="Students Taught" />
+            <AnimatedStat target={150} suffix="+" label="Avg. SAT Score Increase" />
+            <AnimatedStat target={100} suffix="%" label="Satisfaction Rate" />
           </div>
         </div>
       </section>
 
-      {/* What we offer */}
+      {/* What we offer — differentiated */}
       <section className="py-24 px-6 bg-stone-50">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-stone-900 mb-3" style={{ fontWeight: 900 }}>What we offer</h2>
-          <p className="text-stone-500 text-lg mb-16 max-w-xl">
+          <p className="text-stone-500 text-lg mb-4 max-w-2xl">
             Personalized support across standardized testing, college admissions, and academics.
+          </p>
+          <p className="text-amber-600 font-medium mb-16 max-w-2xl">
+            We don't use prep books. Every student gets a custom problem set built around their specific weak areas — so you're always working on exactly what moves your score.
           </p>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
             {[
-              { title: 'SAT Tutoring', desc: 'Targeted instruction across Reading & Writing and Math, with proven strategies to maximize your score.', logo: '/logo-sat.png' },
-              { title: 'ACT Tutoring', desc: 'Full-test preparation covering English, Math, Reading, and Science with personalized pacing plans.', logo: '/logo-act.png' },
-              { title: 'College Consulting', desc: 'Guidance on school selection, application strategy, essays, and positioning to stand out to admissions.', logo: '/logo-acorns.jpg' },
-              { title: 'AP & Math Help', desc: 'Subject-level support for AP courses and math from Algebra through Calculus and beyond.', logo: '/logo-ap.png' },
+              { title: 'SAT Tutoring', desc: 'Targeted instruction across Reading & Writing and Math, with custom problem sets built from your diagnostic results — not generic workbooks.', logo: '/logo-sat.png' },
+              { title: 'ACT Tutoring', desc: 'Full-test preparation covering English, Math, Reading, and Science with personalized pacing plans tailored to your testing style.', logo: '/logo-act.png' },
+              { title: 'College Consulting', desc: 'Real guidance on school selection, essay strategy, and positioning — from tutors who just went through the process and got into top schools.', logo: '/logo-acorns.jpg' },
+              { title: 'AP & Math Help', desc: 'Subject-level support from Algebra through Calculus and AP courses, taught conceptually so the knowledge sticks beyond the test.', logo: '/logo-ap.png' },
             ].map(({ title, desc, logo }) => (
               <div key={title} className="border-t-2 border-stone-200 pt-8">
                 <div className="flex items-center gap-3 mb-3">
