@@ -10,12 +10,24 @@ type Tab = 'home' | 'about' | 'referrals' | 'contact';
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('home');
+  const [displayTab, setDisplayTab] = useState<Tab>('home');
+  const [pageVisible, setPageVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const switchTab = (tab: Tab) => {
+    if (tab === activeTab) return;
+    setPageVisible(false);
+    setTimeout(() => {
+      setActiveTab(tab);
+      setDisplayTab(tab);
+      setPageVisible(true);
+      window.scrollTo({ top: 0 });
+    }, 180);
+  };
+
   const navigateToContact = () => {
-    setActiveTab('contact');
+    switchTab('contact');
     setIsMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const tabs = [
@@ -31,7 +43,7 @@ function App() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-50 border-b border-stone-200">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-center h-16">
-            <button onClick={() => setActiveTab('home')} className="flex items-center gap-2">
+            <button onClick={() => switchTab('home')} className="flex items-center gap-2">
               <JupiterPlanet size={34} />
               <span className="font-bold text-stone-900 text-base">Jupiter Prep</span>
             </button>
@@ -40,7 +52,7 @@ function App() {
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={() => switchTab(tab.id)}
                   className="text-sm transition-colors"
                   style={{
                     color: activeTab === tab.id ? '#0F172A' : '#6B7280',
@@ -65,7 +77,7 @@ function App() {
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => { setActiveTab(tab.id); setIsMenuOpen(false); }}
+                  onClick={() => { switchTab(tab.id); setIsMenuOpen(false); }}
                   className="w-full text-left px-4 py-2 text-sm font-medium"
                   style={{ color: activeTab === tab.id ? '#0F172A' : '#6B7280' }}
                 >
@@ -77,11 +89,11 @@ function App() {
         </div>
       </nav>
 
-      <main className="pt-16">
-        {activeTab === 'home' && <HomePage onNavigateContact={navigateToContact} />}
-        {activeTab === 'about' && <AboutPage onNavigateContact={navigateToContact} />}
-        {activeTab === 'referrals' && <ReferralsPage onNavigateContact={navigateToContact} />}
-        {activeTab === 'contact' && <ContactPage />}
+      <main className="pt-16" style={{ opacity: pageVisible ? 1 : 0, transition: 'opacity 0.18s ease' }}>
+        {displayTab === 'home' && <HomePage onNavigateContact={navigateToContact} />}
+        {displayTab === 'about' && <AboutPage onNavigateContact={navigateToContact} />}
+        {displayTab === 'referrals' && <ReferralsPage onNavigateContact={navigateToContact} />}
+        {displayTab === 'contact' && <ContactPage />}
       </main>
 
       {/* Footer */}
