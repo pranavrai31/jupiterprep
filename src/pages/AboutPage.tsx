@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CtaButton from '../components/CtaButton';
+import { useScrollFade } from '../hooks/useScrollFade';
 
 const founders = [
   {
@@ -82,6 +83,11 @@ const tutors = [
   },
 ];
 
+function FadeSection({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const { ref, style } = useScrollFade(delay);
+  return <div ref={ref} style={style} className={className}>{children}</div>;
+}
+
 type AboutPageProps = {
   onNavigateContact: () => void;
 };
@@ -92,13 +98,16 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
   return (
     <div className="bg-stone-50">
 
+      {/* Founders */}
       <section className="px-6 pt-24 pb-0">
         <div className="max-w-6xl mx-auto">
-          <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Founders</p>
-          <h1 className="text-stone-900 mb-12">Meet the founders</h1>
+          <FadeSection>
+            <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Founders</p>
+            <h1 className="text-stone-900 mb-12">Meet the founders</h1>
+          </FadeSection>
 
           <div className="flex flex-col md:flex-row gap-10 items-start">
-            <div className="flex gap-6 flex-shrink-0">
+            <FadeSection delay={100} className="flex gap-6 flex-shrink-0">
               {founders.map((founder) => (
                 <div key={founder.name} className="w-48">
                   <div className="aspect-[3/4] bg-stone-200 overflow-hidden mb-3">
@@ -109,9 +118,9 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
                   <p className="text-stone-500 text-xs">{founder.school}</p>
                 </div>
               ))}
-            </div>
+            </FadeSection>
 
-            <div className="border-l-4 border-amber-500 pl-6 max-w-lg">
+            <FadeSection delay={200} className="border-l-4 border-amber-500 pl-6 max-w-lg">
               <p className="text-stone-700 text-base leading-relaxed mb-4">
                 What sets Jupiter Prep apart isn't just our results, it's the community we've built around them. Over the past year, we've worked closely with students one-on-one, learning firsthand what truly moves the needle on SAT scores and what doesn't.
               </p>
@@ -121,7 +130,7 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
               <p className="text-stone-700 text-base leading-relaxed">
                 We started Jupiter Prep because we wanted to offer something different: real mentorship, proven strategies, and the kind of personalized attention that creates lasting improvement. We're proud of what this team has built, and we're just getting started.
               </p>
-            </div>
+            </FadeSection>
           </div>
         </div>
       </section>
@@ -131,50 +140,50 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         <img src="/mascot.png" alt="" aria-hidden="true" className="absolute right-6 top-0 w-72 opacity-90 mascot-bounce" />
       </div>
 
-      {/* Tutors section */}
+      {/* Tutors */}
       <section className="px-6 pb-16 pt-0">
         <div className="max-w-6xl mx-auto">
-          <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Team</p>
-          <h2 className="text-stone-900 mb-2">Meet the tutors</h2>
-          <p className="text-stone-500 text-base max-w-xl mb-3">
-            Elite students from top universities who know exactly what it takes to score at the highest levels.
-          </p>
-          <p className="text-amber-600 text-sm mb-12">Click any tutor card to flip it and see their tip.</p>
+          <FadeSection>
+            <p className="text-amber-600 text-sm font-medium tracking-wider uppercase mb-6">Our Team</p>
+            <h2 className="text-stone-900 mb-2">Meet the tutors</h2>
+            <p className="text-stone-500 text-base max-w-xl mb-3">
+              Elite students from top universities who know exactly what it takes to score at the highest levels.
+            </p>
+            <p className="text-amber-600 text-sm mb-12">Click any tutor card to flip it and see their tip.</p>
+          </FadeSection>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {tutors.map((tutor) => (
-              <div
-                key={tutor.name}
-                className="flip-card cursor-pointer"
-                onClick={() => setFlipped(flipped === tutor.name ? null : tutor.name)}
-              >
-                <div className={`flip-card-inner ${flipped === tutor.name ? 'flipped' : ''}`}>
-                  {/* Front */}
-                  <div className="flip-card-front">
-                    <div className="aspect-[3/4] bg-stone-200 overflow-hidden mb-4">
-                      <img src={tutor.image} alt={tutor.name} className="w-full h-full object-cover object-top" />
+            {tutors.map((tutor, i) => (
+              <FadeSection key={tutor.name} delay={i * 60}>
+                <div
+                  className="flip-card cursor-pointer"
+                  onClick={() => setFlipped(flipped === tutor.name ? null : tutor.name)}
+                >
+                  <div className={`flip-card-inner ${flipped === tutor.name ? 'flipped' : ''}`}>
+                    <div className="flip-card-front">
+                      <div className="aspect-[3/4] bg-stone-200 overflow-hidden mb-4 transition-opacity duration-200 hover:opacity-90">
+                        <img src={tutor.image} alt={tutor.name} className="w-full h-full object-cover object-top" />
+                      </div>
+                      <p className="text-amber-600 text-xs font-medium tracking-wider uppercase mb-1">{tutor.role}</p>
+                      <h3 className="text-stone-900 font-semibold text-sm leading-snug mb-1">{tutor.name}</h3>
+                      <p className="text-stone-500 text-xs leading-relaxed mb-2">{tutor.school}</p>
+                      <p className="text-stone-700 text-xs font-medium mb-2">
+                        {tutor.sat.startsWith('ACT') ? tutor.sat : `SAT: ${tutor.sat}`}
+                      </p>
+                      <div className="flex flex-wrap gap-1">
+                        {tutor.specializes.map((s) => (
+                          <span key={s} className="text-xs px-2 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 font-medium">{s}</span>
+                        ))}
+                      </div>
                     </div>
-                    <p className="text-amber-600 text-xs font-medium tracking-wider uppercase mb-1">{tutor.role}</p>
-                    <h3 className="text-stone-900 font-semibold text-sm leading-snug mb-1">{tutor.name}</h3>
-                    <p className="text-stone-500 text-xs leading-relaxed mb-2">{tutor.school}</p>
-                    <p className="text-stone-700 text-xs font-medium mb-2">
-                      {tutor.sat.startsWith('ACT') ? tutor.sat : `SAT: ${tutor.sat}`}
-                    </p>
-                    <div className="flex flex-wrap gap-1">
-                      {tutor.specializes.map((s) => (
-                        <span key={s} className="text-xs px-2 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 font-medium">{s}</span>
-                      ))}
+                    <div className="flip-card-back bg-stone-900 p-4 flex flex-col justify-center">
+                      <p className="text-amber-400 text-xs font-medium uppercase tracking-wider mb-3">Tutor tip</p>
+                      <p className="text-stone-300 text-sm leading-relaxed italic">"{tutor.tip}"</p>
+                      <p className="text-stone-600 text-xs mt-4">Click to flip back</p>
                     </div>
-                  </div>
-
-                  {/* Back */}
-                  <div className="flip-card-back bg-stone-900 p-4 flex flex-col justify-center">
-                    <p className="text-amber-400 text-xs font-medium uppercase tracking-wider mb-3">Tutor tip</p>
-                    <p className="text-stone-300 text-sm leading-relaxed italic">"{tutor.tip}"</p>
-                    <p className="text-stone-600 text-xs mt-4">Click to flip back</p>
                   </div>
                 </div>
-              </div>
+              </FadeSection>
             ))}
           </div>
         </div>
@@ -183,7 +192,9 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
       {/* Teaching philosophy */}
       <section className="py-24 px-6 border-t border-stone-200">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-stone-900 mb-12">Teaching philosophy</h2>
+          <FadeSection>
+            <h2 className="text-stone-900 mb-12">Teaching philosophy</h2>
+          </FadeSection>
           <div className="space-y-8">
             {[
               { n: '01', title: 'Personalized approach', body: 'Every session is tailored to individual learning styles and specific goals.' },
@@ -191,29 +202,34 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
               { n: '03', title: 'Confidence building', body: 'Developing the mindset to tackle challenges and reduce test anxiety.' },
               { n: '04', title: 'Proven strategies', body: 'Time management techniques and test-taking methods refined through experience.' },
               { n: '05', title: 'Progress tracking', body: 'Regular assessment and adaptive planning to ensure continuous improvement.' },
-            ].map(({ n, title, body }) => (
-              <div key={n} className="grid lg:grid-cols-[auto,1fr] gap-4 items-start">
-                <span className="text-amber-600 text-sm font-medium">{n}</span>
-                <div>
-                  <h3 className="text-stone-900 text-lg font-semibold mb-2">{title}</h3>
-                  <p className="text-stone-600">{body}</p>
+            ].map(({ n, title, body }, i) => (
+              <FadeSection key={n} delay={i * 80}>
+                <div className="grid lg:grid-cols-[auto,1fr] gap-4 items-start">
+                  <span className="text-amber-600 text-sm font-medium">{n}</span>
+                  <div>
+                    <h3 className="text-stone-900 text-lg font-semibold mb-2">{title}</h3>
+                    <p className="text-stone-600">{body}</p>
+                  </div>
                 </div>
-              </div>
+              </FadeSection>
             ))}
           </div>
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-24 px-6 bg-stone-900 text-stone-50">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-white mb-4">Let's connect</h2>
-          <p className="text-stone-400 text-lg mb-8">Schedule a consultation to discuss your academic goals.</p>
-          <CtaButton
-            onNavigateContact={onNavigateContact}
-            className="inline-block bg-stone-50 hover:bg-white text-stone-900 font-medium py-4 px-10 transition-colors"
-          >
-            Book a free consultation with us!
-          </CtaButton>
+          <FadeSection>
+            <h2 className="text-white mb-4">Let's connect</h2>
+            <p className="text-stone-400 text-lg mb-8">Schedule a consultation to discuss your academic goals.</p>
+            <CtaButton
+              onNavigateContact={onNavigateContact}
+              className="inline-block bg-stone-50 hover:bg-white text-stone-900 font-medium py-4 px-10 transition-all duration-200 hover:scale-[1.02]"
+            >
+              Book a free consultation with us!
+            </CtaButton>
+          </FadeSection>
         </div>
       </section>
 
@@ -223,7 +239,6 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
           50% { transform: translateY(-12px); }
         }
         .mascot-bounce { animation: bounce-gentle 3s ease-in-out infinite; }
-
         .flip-card { perspective: 1000px; }
         .flip-card-inner {
           position: relative;
