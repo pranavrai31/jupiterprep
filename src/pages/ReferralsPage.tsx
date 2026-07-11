@@ -67,6 +67,20 @@ const REFERRALS: Referral[] = [
     testimonial: "I was struggling with my geometry exams and quizzes, but Jupiter Prep helped fix that. My tutor was amazing and helped me work through every problem I had difficulty with, and even gave me some nice tips to help me memorize long formulas and cut down the work on tedious questions. If I had to recommend any service, it would definitely be Jupiter Prep.",
     image_path: '/images/tutors/pietro.jpeg',
   },
+  {
+    id: '9',
+    student_name: 'Valida Aliyeva',
+    tag: 'Jupiter SAT',
+    testimonial: "The sessions I received from Jupiter Prep's tutoring helped me improve my score and learn new tips and tricks that I hadn't previously known. What stood out most was how personalized each session felt, my tutor always made sure I actually understood the material before moving on.",
+    image_path: '/images/tutors/valida.jpeg',
+  },
+  {
+    id: '10',
+    student_name: 'Izabel Karrer',
+    tag: 'Jupiter SAT',
+    testimonial: "Jupiter Prep's tutoring really helped solidify my understanding of math concepts, and I also liked how my tutor went over the more challenging questions so I'd be prepared for the easier ones. That approach built a level of confidence I didn't have going in, and it showed on test day.",
+    image_path: '/images/tutors/izabel.jpg',
+  },
 ];
 
 function FadeSection({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
