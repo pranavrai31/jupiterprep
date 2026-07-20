@@ -22,8 +22,8 @@ const tutors = [
     name: 'Andrey Vasilyev',
     role: 'Tutor',
     school: 'American Heritage School, Rising Senior',
-    sat: '1540',
-    specializes: ['SAT', 'Mathematics'],
+    scores: 'SAT: 1540 | ACT: 35',
+    specializes: ['SAT', 'ACT', 'Mathematics'],
     tip: 'On the SAT math section, always re-read what the question is actually asking before solving. Half the time students solve the right equation but answer the wrong thing.',
     image: '/images/tutors/FullSizeRender_(1).jpeg',
   },
@@ -31,7 +31,7 @@ const tutors = [
     name: 'Anagha Iyer',
     role: 'Tutor',
     school: 'Stanford University, Class of 2030',
-    sat: '1550',
+    scores: 'SAT: 1550',
     specializes: ['SAT', 'College Consulting'],
     tip: 'Your college essay is not about impressing anyone. It is about letting them hear your actual voice. Write the draft you would never send, then clean it up. The realness is what gets remembered.',
     image: '/images/tutors/Facetune_08-05-2026-18-50-34_(1).jpeg',
@@ -40,7 +40,7 @@ const tutors = [
     name: 'Aaron Pinto',
     role: 'Tutor',
     school: 'Carnegie Mellon University, Class of 2030',
-    sat: '1540',
+    scores: 'SAT: 1540',
     specializes: ['SAT'],
     tip: 'Eliminate before you guess. On every multiple choice question, cross out the two answers you are most confident are wrong. Your odds go from 25% to 50% instantly.',
     image: '/images/tutors/dfb63f4e-83c8-439a-895d-e67bc6e97fe8_(1).JPEG',
@@ -49,7 +49,7 @@ const tutors = [
     name: 'Nathan Lee',
     role: 'Tutor',
     school: 'UNC Chapel Hill, Class of 2030',
-    sat: '1540',
+    scores: 'SAT: 1540',
     specializes: ['SAT'],
     tip: 'Time management is the hidden skill on the SAT. Practice pacing with a stopwatch before you ever worry about content. Knowing when to move on is worth more than knowing one extra formula.',
     image: '/images/tutors/IMG_8740.JPEG',
@@ -58,7 +58,7 @@ const tutors = [
     name: 'Jason Tang',
     role: 'Tutor',
     school: 'University of Pennsylvania, Class of 2030',
-    sat: '1570',
+    scores: 'SAT: 1570',
     specializes: ['College Consulting', 'Mathematics'],
     tip: 'For college essays, specificity beats grandeur every time. "I learned to lead" is forgettable. "I learned to lead when our robot arm snapped 30 minutes before competition" sticks.',
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_06_32_14_PM.png',
@@ -67,8 +67,8 @@ const tutors = [
     name: 'Alan Joseph',
     role: 'Tutor',
     school: 'American Heritage School, Rising Senior',
-    sat: '1510',
-    specializes: ['SAT'],
+    scores: 'SAT: 1530',
+    specializes: ['SAT', 'Mathematics'],
     tip: 'On reading passages, do not try to memorize everything. Just get the main idea of each paragraph as you go. When a question comes up, you will know exactly where to look.',
     image: '/images/tutors/alan.jpeg',
   },
@@ -76,12 +76,14 @@ const tutors = [
     name: 'Adina Brody',
     role: 'Tutor',
     school: 'MAST @ FIU, Rising Senior',
-    sat: 'ACT: 36',
+    scores: 'ACT: 36',
     specializes: ['ACT'],
     tip: 'The ACT Science section is not actually testing science knowledge. It is testing your ability to read graphs and tables quickly. Practice data interpretation and your score will jump.',
     image: '/images/tutors/adina.jpeg',
   },
 ];
+
+const FILTERS = ['All', 'SAT', 'ACT', 'Mathematics', 'College Consulting'];
 
 function FadeSection({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const { ref, style } = useScrollFade(delay);
@@ -94,6 +96,11 @@ type AboutPageProps = {
 
 export default function AboutPage({ onNavigateContact }: AboutPageProps) {
   const [flipped, setFlipped] = useState<string | null>(null);
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const filteredTutors = activeFilter === 'All'
+    ? tutors
+    : tutors.filter(t => t.specializes.includes(activeFilter));
 
   return (
     <div className="bg-stone-50">
@@ -149,11 +156,29 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
             <p className="text-stone-500 text-base max-w-xl mb-3">
               Elite students from top universities who know exactly what it takes to score at the highest levels.
             </p>
-            <p className="text-amber-600 text-sm mb-12">Click any tutor card to flip it and see their tip.</p>
+            <p className="text-amber-600 text-sm mb-8">Click any tutor card to flip it and see their tip.</p>
+
+            {/* Filter pills */}
+            <div className="flex flex-wrap gap-2 mb-12">
+              {FILTERS.map((f) => (
+                <button
+                  key={f}
+                  onClick={() => { setActiveFilter(f); setFlipped(null); }}
+                  className="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105"
+                  style={{
+                    backgroundColor: activeFilter === f ? '#0F172A' : 'white',
+                    color: activeFilter === f ? '#FFF7ED' : '#374151',
+                    border: activeFilter === f ? '1.5px solid #0F172A' : '1.5px solid #D1D5DB',
+                  }}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
           </FadeSection>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {tutors.map((tutor, i) => (
+            {filteredTutors.map((tutor, i) => (
               <FadeSection key={tutor.name} delay={i * 60}>
                 <div
                   className="flip-card cursor-pointer"
@@ -167,9 +192,7 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
                       <p className="text-amber-600 text-xs font-medium tracking-wider uppercase mb-1">{tutor.role}</p>
                       <h3 className="text-stone-900 font-semibold text-sm leading-snug mb-1">{tutor.name}</h3>
                       <p className="text-stone-500 text-xs leading-relaxed mb-2">{tutor.school}</p>
-                      <p className="text-stone-700 text-xs font-medium mb-2">
-                        {tutor.sat.startsWith('ACT') ? tutor.sat : `SAT: ${tutor.sat}`}
-                      </p>
+                      <p className="text-stone-700 text-xs font-medium mb-2">{tutor.scores}</p>
                       <div className="flex flex-wrap gap-1">
                         {tutor.specializes.map((s) => (
                           <span key={s} className="text-xs px-2 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 font-medium">{s}</span>
@@ -217,7 +240,6 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-24 px-6 bg-stone-900 text-stone-50">
         <div className="max-w-3xl mx-auto text-center">
           <FadeSection>

@@ -30,7 +30,7 @@ const REFERRALS: Referral[] = [
     student_name: 'Aarav Verenkar',
     tag: 'Jupiter SAT',
     testimonial: "Jupiter Prep's SAT tutoring is phenomenal. Their style of teaching and methods of explanation are beyond what a regular tutor can provide for someone. The explanations are in-depth and thorough, and the lessons are very consistent to make sure you truly learn the material. 100% recommend getting tutored by Jupiter Prep!",
-    image_path: '/images/tutors/aarav.png',
+    image_path: '/images/tutors/aarav_new.jpg',
   },
   {
     id: '4',
@@ -80,6 +80,13 @@ const REFERRALS: Referral[] = [
     tag: 'Jupiter SAT',
     testimonial: "Jupiter Prep's tutoring really helped solidify my understanding of math concepts, and I also liked how my tutor went over the more challenging questions so I'd be prepared for the easier ones. That approach built a level of confidence I didn't have going in, and it showed on test day.",
     image_path: '/images/tutors/izabel.jpg',
+  },
+  {
+    id: '11',
+    student_name: 'Nate Burkhalter',
+    tag: 'Jupiter SAT',
+    testimonial: "Jupiter Prep's sessions helped me learn all the tips and tricks for the reading section and for using Desmos efficiently, which made me feel a lot more confident walking into the testing room. Being able to breeze through the simpler questions meant I had plenty of time left for the harder ones, and that made all the difference.",
+    image_path: '/images/tutors/nate.jpeg',
   },
 ];
 
