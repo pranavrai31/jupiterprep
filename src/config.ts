@@ -6,7 +6,7 @@
 //    visitors to your Contact page instead. Paste a link here (e.g.
 //    "https://calendly.com/jupiterprep1/consult") and every booking
 //    button on the site will open it directly in a new tab.
-export const CALENDLY_URL = 'https://calendly.com/jupiterprep1';
+export const CALENDLY_URL = 'https://calendly.com/jupiterprep1/30min';
 
 // 2) Contact form endpoint.
 //    Sign up free at https://formspree.io, create a form, and paste the
