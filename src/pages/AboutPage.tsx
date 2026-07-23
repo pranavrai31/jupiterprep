@@ -81,6 +81,24 @@ const tutors = [
     tip: 'The ACT Science section is not actually testing science knowledge. It is testing your ability to read graphs and tables quickly. Practice data interpretation and your score will jump.',
     image: '/images/tutors/adina.jpeg',
   },
+  {
+    name: 'Renier Quintero',
+    role: 'Tutor',
+    school: 'Harvard University, Class of 2030',
+    scores: 'SAT: 1560 | ACT: 36',
+    specializes: ['SAT', 'ACT', 'College Consulting'],
+    tip: 'When it comes to college applications, the students who stand out are the ones who own their story. Do not try to sound like what you think admissions wants to hear. Be specific, be honest, and be yourself.',
+    image: '/images/tutors/renier.png',
+  },
+  {
+    name: 'Jonathan Schwartz',
+    role: 'Tutor',
+    school: 'American Heritage School, Rising Senior',
+    scores: 'SAT: 1590',
+    specializes: ['SAT'],
+    tip: 'A 1590 comes down to near-perfect accuracy, not speed. Slow down on the questions you are most confident about. Careless errors on easy questions are what separate a 1500 from a 1590.',
+    image: '/images/tutors/jonathan.jpeg',
+  },
 ];
 
 const FILTERS = ['All', 'SAT', 'ACT', 'Mathematics', 'College Consulting'];

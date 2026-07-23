@@ -88,6 +88,13 @@ const REFERRALS: Referral[] = [
     testimonial: "Jupiter Prep's sessions helped me learn all the tips and tricks for the reading section and for using Desmos efficiently, which made me feel a lot more confident walking into the testing room. Being able to breeze through the simpler questions meant I had plenty of time left for the harder ones, and that made all the difference.",
     image_path: '/images/tutors/nate.jpeg',
   },
+  {
+    id: '12',
+    student_name: 'Niko Gogonis',
+    tag: 'Jupiter SAT',
+    testimonial: "My Jupiter Prep tutor was exceptional when it came to SAT tutoring. In just two months, my math score went from a 650 to a 750. Their methodology of practicing difficult problems made the actual SAT feel easy. 10/10 results, and I would recommend Jupiter Prep to any student trying to achieve their target score.",
+    image_path: undefined,
+  },
 ];
 
 function FadeSection({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
