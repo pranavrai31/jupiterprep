@@ -93,7 +93,7 @@ const REFERRALS: Referral[] = [
     student_name: 'Niko Gogonis',
     tag: 'Jupiter SAT',
     testimonial: "My Jupiter Prep tutor was exceptional when it came to SAT tutoring. In just two months, my math score went from a 650 to a 750. Their methodology of practicing difficult problems made the actual SAT feel easy. 10/10 results, and I would recommend Jupiter Prep to any student trying to achieve their target score.",
-    image_path: undefined,
+    image_path: '/images/tutors/niko.jpeg',
   },
 ];
 
