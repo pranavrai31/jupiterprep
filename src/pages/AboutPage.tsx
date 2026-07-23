@@ -23,7 +23,8 @@ const tutors = [
     role: 'Tutor',
     school: 'American Heritage School, Rising Senior',
     scores: 'SAT: 1540 | ACT: 35',
-    specializes: ['SAT', 'ACT', 'Mathematics'],
+    specializes: ['SAT', 'ACT'],
+    admissions: null,
     tip: 'On the SAT math section, always re-read what the question is actually asking before solving. Half the time students solve the right equation but answer the wrong thing.',
     image: '/images/tutors/FullSizeRender_(1).jpeg',
   },
@@ -33,6 +34,7 @@ const tutors = [
     school: 'Stanford University, Class of 2030',
     scores: 'SAT: 1550',
     specializes: ['SAT', 'College Consulting'],
+    admissions: 'Also admitted to Princeton, MIT, UCLA',
     tip: 'Your college essay is not about impressing anyone. It is about letting them hear your actual voice. Write the draft you would never send, then clean it up. The realness is what gets remembered.',
     image: '/images/tutors/Facetune_08-05-2026-18-50-34_(1).jpeg',
   },
@@ -41,7 +43,8 @@ const tutors = [
     role: 'Tutor',
     school: 'Carnegie Mellon University, Class of 2030',
     scores: 'SAT: 1540',
-    specializes: ['SAT'],
+    specializes: ['SAT', 'College Consulting'],
+    admissions: 'Also admitted to Georgia Tech, University of Michigan',
     tip: 'Eliminate before you guess. On every multiple choice question, cross out the two answers you are most confident are wrong. Your odds go from 25% to 50% instantly.',
     image: '/images/tutors/dfb63f4e-83c8-439a-895d-e67bc6e97fe8_(1).JPEG',
   },
@@ -51,6 +54,7 @@ const tutors = [
     school: 'UNC Chapel Hill, Class of 2030',
     scores: 'SAT: 1540',
     specializes: ['SAT'],
+    admissions: null,
     tip: 'Time management is the hidden skill on the SAT. Practice pacing with a stopwatch before you ever worry about content. Knowing when to move on is worth more than knowing one extra formula.',
     image: '/images/tutors/IMG_8740.JPEG',
   },
@@ -59,7 +63,8 @@ const tutors = [
     role: 'Tutor',
     school: 'University of Pennsylvania, Class of 2030',
     scores: 'SAT: 1570',
-    specializes: ['College Consulting', 'Mathematics'],
+    specializes: ['SAT', 'College Consulting'],
+    admissions: 'Penn Early Decision',
     tip: 'For college essays, specificity beats grandeur every time. "I learned to lead" is forgettable. "I learned to lead when our robot arm snapped 30 minutes before competition" sticks.',
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_06_32_14_PM.png',
   },
@@ -68,7 +73,8 @@ const tutors = [
     role: 'Tutor',
     school: 'American Heritage School, Rising Senior',
     scores: 'SAT: 1530',
-    specializes: ['SAT', 'Mathematics'],
+    specializes: ['SAT'],
+    admissions: null,
     tip: 'On reading passages, do not try to memorize everything. Just get the main idea of each paragraph as you go. When a question comes up, you will know exactly where to look.',
     image: '/images/tutors/alan.jpeg',
   },
@@ -78,6 +84,7 @@ const tutors = [
     school: 'MAST @ FIU, Rising Senior',
     scores: 'ACT: 36',
     specializes: ['ACT'],
+    admissions: null,
     tip: 'The ACT Science section is not actually testing science knowledge. It is testing your ability to read graphs and tables quickly. Practice data interpretation and your score will jump.',
     image: '/images/tutors/adina.jpeg',
   },
@@ -87,6 +94,7 @@ const tutors = [
     school: 'Harvard University, Class of 2030',
     scores: 'SAT: 1560 | ACT: 36',
     specializes: ['SAT', 'ACT', 'College Consulting'],
+    admissions: 'Also admitted to Princeton, Yale, UPenn, Brown, JHU',
     tip: 'When it comes to college applications, the students who stand out are the ones who own their story. Do not try to sound like what you think admissions wants to hear. Be specific, be honest, and be yourself.',
     image: '/images/tutors/renier.png',
   },
@@ -96,12 +104,33 @@ const tutors = [
     school: 'American Heritage School, Rising Senior',
     scores: 'SAT: 1590',
     specializes: ['SAT'],
+    admissions: null,
     tip: 'A 1590 comes down to near-perfect accuracy, not speed. Slow down on the questions you are most confident about. Careless errors on easy questions are what separate a 1500 from a 1590.',
     image: '/images/tutors/jonathan.jpeg',
   },
+  {
+    name: 'Daniella Glebov',
+    role: 'Tutor',
+    school: 'Cornell University, Class of 2030',
+    scores: 'SAT: 1520',
+    specializes: ['SAT', 'College Consulting'],
+    admissions: null,
+    tip: 'The biggest mistake students make on college applications is trying to seem impressive instead of trying to seem real. Admissions officers read thousands of essays. The ones they remember are the ones that felt like a real person wrote them.',
+    image: '/images/tutors/daniella.jpg',
+  },
+  {
+    name: 'Angelina Lin',
+    role: 'Tutor',
+    school: 'Washington University in St. Louis, Class of 2030',
+    scores: 'SAT: 1570',
+    specializes: ['SAT'],
+    admissions: null,
+    tip: 'On the SAT Reading section, always go back to the passage before answering. Your memory of what you read is less reliable than you think, especially under test pressure.',
+    image: null,
+  },
 ];
 
-const FILTERS = ['All', 'SAT', 'ACT', 'Mathematics', 'College Consulting'];
+const FILTERS = ['All', 'SAT', 'ACT', 'College Consulting'];
 
 function FadeSection({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const { ref, style } = useScrollFade(delay);
@@ -176,7 +205,6 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
             </p>
             <p className="text-amber-600 text-sm mb-8">Click any tutor card to flip it and see their tip.</p>
 
-            {/* Filter pills */}
             <div className="flex flex-wrap gap-2 mb-12">
               {FILTERS.map((f) => (
                 <button
@@ -205,17 +233,26 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
                   <div className={`flip-card-inner ${flipped === tutor.name ? 'flipped' : ''}`}>
                     <div className="flip-card-front">
                       <div className="aspect-[3/4] bg-stone-200 overflow-hidden mb-4 transition-opacity duration-200 hover:opacity-90">
-                        <img src={tutor.image} alt={tutor.name} className="w-full h-full object-cover object-top" />
+                        {tutor.image ? (
+                          <img src={tutor.image} alt={tutor.name} className="w-full h-full object-cover object-top" />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <span className="text-stone-400 text-4xl font-bold">{tutor.name.charAt(0)}</span>
+                          </div>
+                        )}
                       </div>
                       <p className="text-amber-600 text-xs font-medium tracking-wider uppercase mb-1">{tutor.role}</p>
                       <h3 className="text-stone-900 font-semibold text-sm leading-snug mb-1">{tutor.name}</h3>
                       <p className="text-stone-500 text-xs leading-relaxed mb-2">{tutor.school}</p>
                       <p className="text-stone-700 text-xs font-medium mb-2">{tutor.scores}</p>
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap gap-1 mb-2">
                         {tutor.specializes.map((s) => (
                           <span key={s} className="text-xs px-2 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 font-medium">{s}</span>
                         ))}
                       </div>
+                      {tutor.admissions && (
+                        <p className="text-stone-500 text-xs italic leading-relaxed">{tutor.admissions}</p>
+                      )}
                     </div>
                     <div className="flip-card-back bg-stone-900 p-4 flex flex-col justify-center">
                       <p className="text-amber-400 text-xs font-medium uppercase tracking-wider mb-3">Tutor tip</p>
