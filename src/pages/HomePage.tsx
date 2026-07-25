@@ -95,7 +95,7 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
             <div style={heroStyle3}>
               <CtaButton
                 onNavigateContact={onNavigateContact}
-                className="inline-block bg-stone-900 text-stone-50 font-medium py-4 px-10 transition-all duration-200 hover:scale-[1.02] hover:bg-stone-800"
+                className="inline-block bg-stone-900 text-stone-50 font-medium py-4 px-10 rounded-full transition-all duration-200 hover:scale-[1.02] hover:bg-stone-800"
               >
                 Book a free consultation with us!
               </CtaButton>
