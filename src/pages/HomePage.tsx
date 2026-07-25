@@ -192,7 +192,7 @@ export default function HomePage({ onNavigateContact }: HomePageProps) {
             </p>
             <CtaButton
               onNavigateContact={onNavigateContact}
-              className="inline-block bg-stone-50 hover:bg-white text-stone-900 font-medium py-4 px-10 transition-all duration-200 hover:scale-[1.02]"
+              className="inline-block bg-stone-50 hover:bg-white text-stone-900 font-medium py-4 px-10 rounded-full transition-all duration-200 hover:scale-[1.02]"
             >
               Get started
             </CtaButton>

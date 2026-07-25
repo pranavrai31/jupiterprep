@@ -130,7 +130,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="w-full bg-stone-900 hover:bg-stone-800 disabled:opacity-60 disabled:cursor-not-allowed text-stone-50 font-medium py-4 transition-all duration-200 hover:scale-[1.01]"
+                  className="w-full bg-stone-900 hover:bg-stone-800 disabled:opacity-60 disabled:cursor-not-allowed text-stone-50 font-medium py-4 rounded-full transition-all duration-200 hover:scale-[1.01]"
                 >
                   {status === 'sending' ? 'Sending...' : 'Send message'}
                 </button>

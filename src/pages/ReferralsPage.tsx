@@ -173,7 +173,7 @@ export default function ReferralsPage({ onNavigateContact }: ReferralsPageProps)
             </p>
             <CtaButton
               onNavigateContact={onNavigateContact}
-              className="inline-block bg-amber-500 hover:bg-amber-400 text-stone-900 font-medium py-4 px-10 transition-all duration-200 hover:scale-[1.02]"
+              className="inline-block bg-amber-500 hover:bg-amber-400 text-stone-900 font-medium py-4 px-10 rounded-full transition-all duration-200 hover:scale-[1.02]"
             >
               Start your journey
             </CtaButton>

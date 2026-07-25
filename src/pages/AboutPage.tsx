@@ -126,7 +126,17 @@ const tutors = [
     specializes: ['SAT'],
     admissions: null,
     tip: 'On the SAT Reading section, always go back to the passage before answering. Your memory of what you read is less reliable than you think, especially under test pressure.',
-    image: null,
+    image: '/images/tutors/angelina.jpeg',
+  },
+  {
+    name: 'Lucas Gavrilescu',
+    role: 'Tutor',
+    school: 'American Heritage School, Rising Senior',
+    scores: 'SAT: 1560 | ACT: 35',
+    specializes: ['SAT', 'ACT'],
+    admissions: null,
+    tip: 'Do not skip the hard questions entirely. Give them 30 seconds, make your best guess, mark it, and move on. Coming back fresh after easier questions often unlocks the answer you couldn\'t see before.',
+    image: '/images/tutors/lucas.jpg',
   },
 ];
 
@@ -302,7 +312,7 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
             <p className="text-stone-400 text-lg mb-8">Schedule a consultation to discuss your academic goals.</p>
             <CtaButton
               onNavigateContact={onNavigateContact}
-              className="inline-block bg-stone-50 hover:bg-white text-stone-900 font-medium py-4 px-10 transition-all duration-200 hover:scale-[1.02]"
+              className="inline-block bg-stone-50 hover:bg-white text-stone-900 font-medium py-4 px-10 rounded-full transition-all duration-200 hover:scale-[1.02]"
             >
               Book a free consultation with us!
             </CtaButton>
