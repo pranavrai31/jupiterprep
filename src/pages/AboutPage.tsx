@@ -19,14 +19,24 @@ const founders = [
 
 const tutors = [
   {
-    name: 'Andrey Vasilyev',
+    name: 'Renier Quintero',
     role: 'Tutor',
-    school: 'American Heritage School, Rising Senior',
-    scores: 'SAT: 1540 | ACT: 35',
-    specializes: ['SAT', 'ACT'],
-    admissions: null,
-    tip: 'On the SAT math section, always re-read what the question is actually asking before solving. Half the time students solve the right equation but answer the wrong thing.',
-    image: '/images/tutors/FullSizeRender_(1).jpeg',
+    school: 'Harvard University, Class of 2030',
+    scores: 'SAT: 1560 | ACT: 36',
+    specializes: ['SAT', 'ACT', 'College Consulting'],
+    admissions: 'Also admitted to Princeton, Yale, UPenn, Brown, JHU',
+    tip: 'When it comes to college applications, the students who stand out are the ones who own their story. Do not try to sound like what you think admissions wants to hear. Be specific, be honest, and be yourself.',
+    image: '/images/tutors/renier.png',
+  },
+  {
+    name: 'Sonya Singh',
+    role: 'Tutor',
+    school: 'Harvard University, Class of 2030',
+    scores: 'SAT: 1570',
+    specializes: ['SAT', 'College Consulting'],
+    admissions: 'Also admitted to Carnegie Mellon, University of Michigan, Georgia Tech',
+    tip: 'Start your college essays early and write multiple drafts. The first draft is never your best — the magic happens in the revision process when you find what you are actually trying to say.',
+    image: '/images/tutors/sonya.png',
   },
   {
     name: 'Anagha Iyer',
@@ -39,24 +49,14 @@ const tutors = [
     image: '/images/tutors/Facetune_08-05-2026-18-50-34_(1).jpeg',
   },
   {
-    name: 'Aaron Pinto',
+    name: 'Jonathan Schwartz',
     role: 'Tutor',
-    school: 'Carnegie Mellon University, Class of 2030',
-    scores: 'SAT: 1540',
-    specializes: ['SAT', 'College Consulting'],
-    admissions: 'Also admitted to Georgia Tech, University of Michigan',
-    tip: 'Eliminate before you guess. On every multiple choice question, cross out the two answers you are most confident are wrong. Your odds go from 25% to 50% instantly.',
-    image: '/images/tutors/dfb63f4e-83c8-439a-895d-e67bc6e97fe8_(1).JPEG',
-  },
-  {
-    name: 'Nathan Lee',
-    role: 'Tutor',
-    school: 'UNC Chapel Hill, Class of 2030',
-    scores: 'SAT: 1540',
+    school: 'American Heritage School, Rising Senior',
+    scores: 'SAT: 1590',
     specializes: ['SAT'],
     admissions: null,
-    tip: 'Time management is the hidden skill on the SAT. Practice pacing with a stopwatch before you ever worry about content. Knowing when to move on is worth more than knowing one extra formula.',
-    image: '/images/tutors/IMG_8740.JPEG',
+    tip: 'A 1590 comes down to near-perfect accuracy, not speed. Slow down on the questions you are most confident about. Careless errors on easy questions are what separate a 1500 from a 1590.',
+    image: '/images/tutors/jonathan.jpeg',
   },
   {
     name: 'Jason Tang',
@@ -69,44 +69,14 @@ const tutors = [
     image: '/images/tutors/ChatGPT_Image_Jul_2,_2026,_06_32_14_PM.png',
   },
   {
-    name: 'Alan Joseph',
+    name: 'Angelina Lin',
     role: 'Tutor',
-    school: 'American Heritage School, Rising Senior',
-    scores: 'SAT: 1530',
+    school: 'Washington University in St. Louis, Class of 2030',
+    scores: 'SAT: 1570',
     specializes: ['SAT'],
     admissions: null,
-    tip: 'On reading passages, do not try to memorize everything. Just get the main idea of each paragraph as you go. When a question comes up, you will know exactly where to look.',
-    image: '/images/tutors/alan.jpeg',
-  },
-  {
-    name: 'Adina Brody',
-    role: 'Tutor',
-    school: 'MAST @ FIU, Rising Senior',
-    scores: 'ACT: 36',
-    specializes: ['ACT'],
-    admissions: null,
-    tip: 'The ACT Science section is not actually testing science knowledge. It is testing your ability to read graphs and tables quickly. Practice data interpretation and your score will jump.',
-    image: '/images/tutors/adina.jpeg',
-  },
-  {
-    name: 'Renier Quintero',
-    role: 'Tutor',
-    school: 'Harvard University, Class of 2030',
-    scores: 'SAT: 1560 | ACT: 36',
-    specializes: ['SAT', 'ACT', 'College Consulting'],
-    admissions: 'Also admitted to Princeton, Yale, UPenn, Brown, JHU',
-    tip: 'When it comes to college applications, the students who stand out are the ones who own their story. Do not try to sound like what you think admissions wants to hear. Be specific, be honest, and be yourself.',
-    image: '/images/tutors/renier.png',
-  },
-  {
-    name: 'Jonathan Schwartz',
-    role: 'Tutor',
-    school: 'American Heritage School, Rising Senior',
-    scores: 'SAT: 1590',
-    specializes: ['SAT'],
-    admissions: null,
-    tip: 'A 1590 comes down to near-perfect accuracy, not speed. Slow down on the questions you are most confident about. Careless errors on easy questions are what separate a 1500 from a 1590.',
-    image: '/images/tutors/jonathan.jpeg',
+    tip: 'On the SAT Reading section, always go back to the passage before answering. Your memory of what you read is less reliable than you think, especially under test pressure.',
+    image: '/images/tutors/angelina.jpeg',
   },
   {
     name: 'Daniella Glebov',
@@ -119,24 +89,64 @@ const tutors = [
     image: '/images/tutors/daniella.jpg',
   },
   {
-    name: 'Angelina Lin',
-    role: 'Tutor',
-    school: 'Washington University in St. Louis, Class of 2030',
-    scores: 'SAT: 1570',
-    specializes: ['SAT'],
-    admissions: null,
-    tip: 'On the SAT Reading section, always go back to the passage before answering. Your memory of what you read is less reliable than you think, especially under test pressure.',
-    image: '/images/tutors/angelina.jpeg',
-  },
-  {
     name: 'Lucas Gavrilescu',
     role: 'Tutor',
     school: 'American Heritage School, Rising Senior',
     scores: 'SAT: 1560 | ACT: 35',
     specializes: ['SAT', 'ACT'],
     admissions: null,
-    tip: 'Do not skip the hard questions entirely. Give them 30 seconds, make your best guess, mark it, and move on. Coming back fresh after easier questions often unlocks the answer you couldn\'t see before.',
+    tip: 'Do not skip the hard questions entirely. Give them 30 seconds, make your best guess, mark it, and move on. Coming back fresh after easier questions often unlocks the answer you could not see before.',
     image: '/images/tutors/lucas.jpg',
+  },
+  {
+    name: 'Aaron Pinto',
+    role: 'Tutor',
+    school: 'Carnegie Mellon University, Class of 2030',
+    scores: 'SAT: 1540',
+    specializes: ['SAT', 'College Consulting'],
+    admissions: 'Also admitted to Georgia Tech, University of Michigan',
+    tip: 'Eliminate before you guess. On every multiple choice question, cross out the two answers you are most confident are wrong. Your odds go from 25% to 50% instantly.',
+    image: '/images/tutors/dfb63f4e-83c8-439a-895d-e67bc6e97fe8_(1).JPEG',
+  },
+  {
+    name: 'Andrey Vasilyev',
+    role: 'Tutor',
+    school: 'American Heritage School, Rising Senior',
+    scores: 'SAT: 1540 | ACT: 35',
+    specializes: ['SAT', 'ACT'],
+    admissions: null,
+    tip: 'On the SAT math section, always re-read what the question is actually asking before solving. Half the time students solve the right equation but answer the wrong thing.',
+    image: '/images/tutors/FullSizeRender_(1).jpeg',
+  },
+  {
+    name: 'Nathan Lee',
+    role: 'Tutor',
+    school: 'UNC Chapel Hill, Class of 2030',
+    scores: 'SAT: 1540',
+    specializes: ['SAT'],
+    admissions: null,
+    tip: 'Time management is the hidden skill on the SAT. Practice pacing with a stopwatch before you ever worry about content. Knowing when to move on is worth more than knowing one extra formula.',
+    image: '/images/tutors/IMG_8740.JPEG',
+  },
+  {
+    name: 'Adina Brody',
+    role: 'Tutor',
+    school: 'MAST @ FIU, Rising Senior',
+    scores: 'ACT: 36',
+    specializes: ['ACT'],
+    admissions: null,
+    tip: 'The ACT Science section is not actually testing science knowledge. It is testing your ability to read graphs and tables quickly. Practice data interpretation and your score will jump.',
+    image: '/images/tutors/adina.jpeg',
+  },
+  {
+    name: 'Alan Joseph',
+    role: 'Tutor',
+    school: 'American Heritage School, Rising Senior',
+    scores: 'SAT: 1530',
+    specializes: ['SAT'],
+    admissions: null,
+    tip: 'On reading passages, do not try to memorize everything. Just get the main idea of each paragraph as you go. When a question comes up, you will know exactly where to look.',
+    image: '/images/tutors/alan.jpeg',
   },
 ];
 
@@ -162,7 +172,6 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
   return (
     <div className="bg-stone-50">
 
-      {/* Founders */}
       <section className="px-6 pt-24 pb-0">
         <div className="max-w-6xl mx-auto">
           <FadeSection>
@@ -199,12 +208,10 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         </div>
       </section>
 
-      {/* Mascot divider */}
       <div className="relative max-w-6xl mx-auto px-6 h-48 overflow-visible">
         <img src="/mascot.png" alt="" aria-hidden="true" className="absolute right-6 top-0 w-72 opacity-90 mascot-bounce" />
       </div>
 
-      {/* Tutors */}
       <section className="px-6 pb-16 pt-0">
         <div className="max-w-6xl mx-auto">
           <FadeSection>
@@ -277,7 +284,6 @@ export default function AboutPage({ onNavigateContact }: AboutPageProps) {
         </div>
       </section>
 
-      {/* Teaching philosophy */}
       <section className="py-24 px-6 border-t border-stone-200">
         <div className="max-w-3xl mx-auto">
           <FadeSection>
